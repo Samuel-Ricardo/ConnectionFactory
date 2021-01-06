@@ -7,7 +7,11 @@ package com.MySQL.Connection;
 
 /**
  *
+ * <P>This class aims to make the connection to the <B>MySQL</B> database in a simple way
+ * 
  * @author Samuel
+ * @version 1.0.0
+ * @since Jan 2021
  */
 public class MySQLConnectionFactory {
     
