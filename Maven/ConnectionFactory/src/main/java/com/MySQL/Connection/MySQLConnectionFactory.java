@@ -11,4 +11,18 @@ package com.MySQL.Connection;
  */
 public class MySQLConnectionFactory {
     
+    private static final String DRIVER; 
+    private static final String HOST;
+    private static final String PORT;
+    private static final String DATABASE;
+    private static final String URL; 
+    private static final String USER;
+    private static final String PASSWORD;
+    
+    
+    public static final String DEFAULT_USER = "root";
+    public static final String DEFAULT_PASSWORD = "";
+    public static final String DEFAULT_DRIVER = "com.mysql.jdbc.Driver";
+    public static final String DEFAULT_HOST = "localhost";
+    public static final String DEFAULT_PORT = "3306";
 }
