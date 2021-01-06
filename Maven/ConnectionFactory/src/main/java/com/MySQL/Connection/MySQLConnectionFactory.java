@@ -15,13 +15,13 @@ package com.MySQL.Connection;
  */
 public class MySQLConnectionFactory {
     
-    private static final String DRIVER; 
-    private static final String HOST;
-    private static final String PORT;
-    private static final String DATABASE;
-    private static final String URL; 
-    private static final String USER;
-    private static final String PASSWORD;
+    private static String DRIVER; 
+    private static String HOST;
+    private static String PORT;
+    private static String DATABASE;
+    private static String URL; 
+    private static String USER;
+    private static String PASSWORD;
     
     
     public static final String DEFAULT_USER = "root";
@@ -29,4 +29,42 @@ public class MySQLConnectionFactory {
     public static final String DEFAULT_DRIVER = "com.mysql.jdbc.Driver";
     public static final String DEFAULT_HOST = "localhost";
     public static final String DEFAULT_PORT = "3306";
+
+    
+    
+    public MySQLConnectionFactory(String drive, String host, String port, String database, String user, String password) {
+        
+        this.DRIVER = drive;
+        this.HOST = host;
+        this.PORT = port;
+        this.DATABASE = database;
+        this.URL = "jdbc:mysql://"+this.HOST+":"+this.PORT+"/"+this.DATABASE;
+        this.USER = user;
+        this.PASSWORD = password;
+        
+    }
+    
+    public MySQLConnectionFactory(String host, String port, String database, String user, String password) {
+        
+        this.DRIVER = this.DEFAULT_DRIVER;
+        this.HOST = host;
+        this.PORT = port;
+        this.DATABASE = database;
+        this.URL = "jdbc:mysql://"+this.HOST+":"+this.PORT+"/"+this.DATABASE;
+        this.USER = user;
+        this.PASSWORD = password;
+        
+    }
+    
+    public MySQLConnectionFactory(String database) {
+        
+        this.DRIVER = this.DEFAULT_DRIVER;
+        this.HOST = this.DEFAULT_HOST;
+        this.PORT = this.DEFAULT_PORT;
+        this.DATABASE = database;
+        this.URL = "jdbc:mysql://"+this.HOST+":"+this.PORT+"/"+this.DATABASE;
+        this.USER = this.DEFAULT_USER;
+        this.PASSWORD = this.DEFAULT_PASSWORD;
+        
+    }
 }
