@@ -5,6 +5,10 @@
  */
 package com.MySQL.Connection;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 /**
  *
  * <P>This class aims to make the connection to the <B>MySQL</B> database in a simple way
@@ -22,11 +26,11 @@ public class MySQLConnectionFactory {
     private static String URL; 
     private static String USER;
     private static String PASSWORD;
-    
+    private static Connection connection;
     
     public static final String DEFAULT_USER = "root";
     public static final String DEFAULT_PASSWORD = "";
-    public static final String DEFAULT_DRIVER = "com.mysql.jdbc.Driver";
+    public static final String DEFAULT_DRIVER = "com.mysql.cj.jdbc.Driver";
     public static final String DEFAULT_HOST = "localhost";
     public static final String DEFAULT_PORT = "3306";
 
@@ -66,5 +70,14 @@ public class MySQLConnectionFactory {
         this.USER = this.DEFAULT_USER;
         this.PASSWORD = this.DEFAULT_PASSWORD;
         
+    }
+    
+    public static Connection getConnection() throws ClassNotFoundException, SQLException {
+        
+        Class.forName(DRIVER);
+        
+        connection = DriverManager.getConnection(URL);
+   
+        return connection;
     }
 }
