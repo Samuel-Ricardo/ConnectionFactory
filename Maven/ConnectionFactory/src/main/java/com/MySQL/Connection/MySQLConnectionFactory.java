@@ -36,47 +36,50 @@ public class MySQLConnectionFactory {
 
     
     
-    public MySQLConnectionFactory(String drive, String host, String port, String database, String user, String password) {
+    private static void loadClass(String drive, String host, String port, String database, String user, String password) {
         
-        this.DRIVER = drive;
-        this.HOST = host;
-        this.PORT = port;
-        this.DATABASE = database;
-        this.URL = "jdbc:mysql://"+this.HOST+":"+this.PORT+"/"+this.DATABASE;
-        this.USER = user;
-        this.PASSWORD = password;
-        
-    }
-    
-    public MySQLConnectionFactory(String host, String port, String database, String user, String password) {
-        
-        this.DRIVER = this.DEFAULT_DRIVER;
-        this.HOST = host;
-        this.PORT = port;
-        this.DATABASE = database;
-        this.URL = "jdbc:mysql://"+this.HOST+":"+this.PORT+"/"+this.DATABASE;
-        this.USER = user;
-        this.PASSWORD = password;
+        MySQLConnectionFactory.DRIVER = drive;
+        MySQLConnectionFactory.HOST = host;
+        MySQLConnectionFactory.PORT = port;
+        MySQLConnectionFactory.DATABASE = database;
+        MySQLConnectionFactory.URL = "jdbc:mysql://"+MySQLConnectionFactory.HOST+":"+MySQLConnectionFactory.PORT+"/"+MySQLConnectionFactory.DATABASE;
+        MySQLConnectionFactory.USER = user;
+        MySQLConnectionFactory.PASSWORD = password;
         
     }
     
-    public MySQLConnectionFactory(String database) {
+    private static void loadClass(String host, String port, String database, String user, String password) {
         
-        this.DRIVER = this.DEFAULT_DRIVER;
-        this.HOST = this.DEFAULT_HOST;
-        this.PORT = this.DEFAULT_PORT;
-        this.DATABASE = database;
-        this.URL = "jdbc:mysql://"+this.HOST+":"+this.PORT+"/"+this.DATABASE;
-        this.USER = this.DEFAULT_USER;
-        this.PASSWORD = this.DEFAULT_PASSWORD;
+        MySQLConnectionFactory.DRIVER = MySQLConnectionFactory.DEFAULT_DRIVER;
+        MySQLConnectionFactory.HOST = host;
+        MySQLConnectionFactory.PORT = port;
+        MySQLConnectionFactory.DATABASE = database;
+        MySQLConnectionFactory.URL = "jdbc:mysql://"+MySQLConnectionFactory.HOST+":"+MySQLConnectionFactory.PORT+"/"+MySQLConnectionFactory.DATABASE;
+        MySQLConnectionFactory.USER = user;
+        MySQLConnectionFactory.PASSWORD = password;
         
     }
     
-    public static Connection getConnection() throws ClassNotFoundException, SQLException {
+    private static void loadClass(String database) {
+        
+        MySQLConnectionFactory.DRIVER = MySQLConnectionFactory.DEFAULT_DRIVER;
+        MySQLConnectionFactory.HOST = MySQLConnectionFactory.DEFAULT_HOST;
+        MySQLConnectionFactory.PORT = MySQLConnectionFactory.DEFAULT_PORT;
+        MySQLConnectionFactory.DATABASE = database;
+        MySQLConnectionFactory.USER = MySQLConnectionFactory.DEFAULT_USER;
+        MySQLConnectionFactory.PASSWORD = MySQLConnectionFactory.DEFAULT_PASSWORD;
+        MySQLConnectionFactory.URL = "jdbc:mysql://"+MySQLConnectionFactory.HOST+":"+MySQLConnectionFactory.PORT+"/"+MySQLConnectionFactory.DATABASE;
+        
+        
+    }
+    
+    public static Connection getConnection(String database) throws ClassNotFoundException, SQLException {
+        
+        loadClass(database);
         
         Class.forName(DRIVER);
         
-        connection = DriverManager.getConnection(URL);
+        connection = DriverManager.getConnection(URL, USER, PASSWORD);
    
         return connection;
     }
