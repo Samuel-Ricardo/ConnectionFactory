@@ -18,7 +18,7 @@ import java.sql.Connection;
 public class MySQLConnectionFactoryTest {
 
     @Test
-    public void testGetConnectionSuccess() throws Exception {
+    public void SuccessTest() throws Exception {
         
         Connection result = getConnection(DEFAULT_HOST, "3308", "dbbiblio", DEFAULT_USER, DEFAULT_PASSWORD);
         
@@ -27,12 +27,20 @@ public class MySQLConnectionFactoryTest {
     }
     
     @Test
-    public void testGetConnectionFail() throws Exception {
-        
-        Connection result = getConnection(DEFAULT_HOST, "3308", "NOT_EXISTS", DEFAULT_USER, DEFAULT_PASSWORD);
-        
-        assertThrows(ConnectionImpl.class, result.getClass());
-        
+    public void InvalidDataBaseTest() throws Exception {
+     
+        try {
+
+            Connection result = getConnection(DEFAULT_HOST, "3308", "INVALID_DATABASE", DEFAULT_USER, DEFAULT_PASSWORD);
+
+            assertEquals(null, result);
+            
+            fail("No Exception"); 
+
+        } catch (RuntimeException ex) {
+
+            assertEquals(RuntimeException.class, ex.getClass());
+        }
     }
     
 }
