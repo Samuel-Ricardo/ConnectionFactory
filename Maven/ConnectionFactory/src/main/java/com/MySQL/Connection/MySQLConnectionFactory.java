@@ -42,9 +42,9 @@ public class MySQLConnectionFactory {
         HOST = host;
         PORT = port;
         DATABASE = database;
-        URL = getURL();
         USER = user;
         PASSWORD = password;
+        URL = getURL();
         
     }
     
@@ -54,9 +54,9 @@ public class MySQLConnectionFactory {
         HOST = host;
         PORT = port;
         DATABASE = database;
-        URL = getURL();
         USER = user;
         PASSWORD = password;
+        URL = getURL();
         
     }
 
@@ -73,7 +73,6 @@ public class MySQLConnectionFactory {
         USER = DEFAULT_USER;
         PASSWORD = DEFAULT_PASSWORD;
         URL = getURL();
-        
         
     }
     

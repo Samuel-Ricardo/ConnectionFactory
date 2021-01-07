@@ -8,6 +8,7 @@ package com.MySQL.Connection;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import static com.MySQL.Connection.MySQLConnectionFactory.*;
+import com.mysql.cj.jdbc.ConnectionImpl;
 import java.sql.Connection;
 
 /**
@@ -15,14 +16,14 @@ import java.sql.Connection;
  * @author Samuel
  */
 public class MySQLConnectionFactoryTest {
-    
-     
 
     @Test
-    public void testGetConnection_2() throws Exception {
-         
-        assertEquals(Connection.class, getConnection(DEFAULT_HOST, "3308", "dbbiblio", DEFAULT_USER, DEFAULT_PASSWORD));
-   
+    public void testGetConnectionSuccess() throws Exception {
+        
+        Connection result = getConnection(DEFAULT_HOST, "3308", "dbbiblio", DEFAULT_USER, DEFAULT_PASSWORD);
+        
+        assertEquals(ConnectionImpl.class, result.getClass());
+        
     }
     
 }
