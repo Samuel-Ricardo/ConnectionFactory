@@ -305,5 +305,24 @@ public class MySQLConnectionFactory {
                                   + "\n"
                                   + "\n Cause: "+ ex.getCause());
         }
+        
+    }  
+        
+    /**
+     *
+     * @param connection
+     */
+    public static void closeConnection(Connection connection){
+            
+            if (connection != null ){
+                
+                try {
+                    
+                    connection.close();
+                    
+                } catch (SQLException ex) {
+                    Logger.getLogger(MySQLConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
     }
 }
