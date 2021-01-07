@@ -59,6 +59,22 @@ public class MySQLConnectionFactoryTest {
             assertEquals(RuntimeException.class, ex.getClass());
         }
     }
-   
     
+    @Test
+    public void InvalidPortTest() throws Exception {
+     
+        try {
+
+            Connection result = getConnection(DEFAULT_HOST, "INVALID_PORT", "dbbiblio", DEFAULT_USER, DEFAULT_PASSWORD);
+
+            assertEquals(null, result);
+            
+            fail("No Exception"); 
+
+        } catch (RuntimeException ex) {
+
+            assertEquals(RuntimeException.class, ex.getClass());
+        }
+    }
+   
 }
