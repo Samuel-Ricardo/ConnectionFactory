@@ -42,7 +42,7 @@ public class MySQLConnectionFactory {
         HOST = host;
         PORT = port;
         DATABASE = database;
-        URL = "jdbc:mysql://"+HOST+":"+PORT+"/"+DATABASE;
+        URL = getURL();
         USER = user;
         PASSWORD = password;
         
@@ -54,10 +54,14 @@ public class MySQLConnectionFactory {
         HOST = host;
         PORT = port;
         DATABASE = database;
-        URL = "jdbc:mysql://"+HOST+":"+PORT+"/"+DATABASE;
+        URL = getURL();
         USER = user;
         PASSWORD = password;
         
+    }
+
+    private static String getURL() {
+        return "jdbc:mysql://"+HOST+":"+PORT+"/"+DATABASE+"?useTimezone=true&serverTimezone=UTC";
     }
     
     private static void loadClass(String database) {
@@ -68,7 +72,7 @@ public class MySQLConnectionFactory {
         DATABASE = database;
         USER = DEFAULT_USER;
         PASSWORD = DEFAULT_PASSWORD;
-        URL = "jdbc:mysql://"+HOST+":"+PORT+"/"+DATABASE;
+        URL = getURL();
         
         
     }
