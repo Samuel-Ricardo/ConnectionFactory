@@ -43,4 +43,22 @@ public class MySQLConnectionFactoryTest {
         }
     }
     
+    @Test
+    public void InvalidHostTest() throws Exception {
+     
+        try {
+
+            Connection result = getConnection("INVALID_HOST", "3308", "dbbiblio", DEFAULT_USER, DEFAULT_PASSWORD);
+
+            assertEquals(null, result);
+            
+            fail("No Exception"); 
+
+        } catch (RuntimeException ex) {
+
+            assertEquals(RuntimeException.class, ex.getClass());
+        }
+    }
+   
+    
 }
