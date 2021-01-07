@@ -140,5 +140,34 @@ public class MySQLConnectionFactory {
         }
     }
     
-    
+    public static Connection getConnection(String driver, String host, String port, String database, String user, String password) {
+        
+        try {
+            loadClass(driver, host, port, database, user, password);
+            
+            Class.forName(DRIVER);
+            
+            connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            
+            return connection;
+            
+        } catch (ClassNotFoundException ex) {
+            
+            Logger.getLogger(MySQLConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
+            
+            throw new RuntimeException("Error at trying to import DRIVER: " + ex
+                                  + "\n"
+                                  + "\n"
+                                  + "\n Cause: "+ ex.getCause());
+           
+        } catch (SQLException ex) {
+            
+            Logger.getLogger(MySQLConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
+            
+            throw new RuntimeException("Error at trying to Connect: " + ex
+                                  + "\n"
+                                  + "\n"
+                                  + "\n Cause: "+ ex.getCause());
+        }
+    }
 }
