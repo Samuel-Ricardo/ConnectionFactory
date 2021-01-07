@@ -26,4 +26,13 @@ public class MySQLConnectionFactoryTest {
         
     }
     
+    @Test
+    public void testGetConnectionFail() throws Exception {
+        
+        Connection result = getConnection(DEFAULT_HOST, "3308", "NOT_EXISTS", DEFAULT_USER, DEFAULT_PASSWORD);
+        
+        assertThrows(ConnectionImpl.class, result.getClass());
+        
+    }
+    
 }

@@ -8,6 +8,8 @@ package com.MySQL.Connection;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -87,14 +89,34 @@ public class MySQLConnectionFactory {
         return connection;
     }
     
-    public static Connection getConnection(String host, String port, String database, String user, String password) throws ClassNotFoundException, SQLException {
+    public static Connection getConnection(String host, String port, String database, String user, String password) {
         
-        loadClass(host, port, database, user, password);
-        
-        Class.forName(DRIVER);
-        
-        connection = DriverManager.getConnection(URL, USER, PASSWORD);
-   
-        return connection;
+        try {
+            loadClass(host, port, database, user, password);
+            
+            Class.forName(DRIVER);
+            
+            connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            
+            return connection;
+            
+        } catch (ClassNotFoundException ex) {
+            
+            Logger.getLogger(MySQLConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
+            
+            throw new RuntimeException("Error at trying to import DRIVER: " + ex
+                                  + "\n"
+                                  + "\n"
+                                  + "\n Cause: "+ ex.getCause());
+           
+        } catch (SQLException ex) {
+            
+            Logger.getLogger(MySQLConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
+            
+            throw new RuntimeException("Error at trying to Connect: " + ex
+                                  + "\n"
+                                  + "\n"
+                                  + "\n Cause: "+ ex.getCause());
+        }
     }
 }
