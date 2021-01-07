@@ -38,37 +38,37 @@ public class MySQLConnectionFactory {
     
     private static void loadClass(String drive, String host, String port, String database, String user, String password) {
         
-        MySQLConnectionFactory.DRIVER = drive;
-        MySQLConnectionFactory.HOST = host;
-        MySQLConnectionFactory.PORT = port;
-        MySQLConnectionFactory.DATABASE = database;
-        MySQLConnectionFactory.URL = "jdbc:mysql://"+MySQLConnectionFactory.HOST+":"+MySQLConnectionFactory.PORT+"/"+MySQLConnectionFactory.DATABASE;
-        MySQLConnectionFactory.USER = user;
-        MySQLConnectionFactory.PASSWORD = password;
+        DRIVER = drive;
+        HOST = host;
+        PORT = port;
+        DATABASE = database;
+        URL = "jdbc:mysql://"+HOST+":"+PORT+"/"+DATABASE;
+        USER = user;
+        PASSWORD = password;
         
     }
     
     private static void loadClass(String host, String port, String database, String user, String password) {
         
-        MySQLConnectionFactory.DRIVER = MySQLConnectionFactory.DEFAULT_DRIVER;
-        MySQLConnectionFactory.HOST = host;
-        MySQLConnectionFactory.PORT = port;
-        MySQLConnectionFactory.DATABASE = database;
-        MySQLConnectionFactory.URL = "jdbc:mysql://"+MySQLConnectionFactory.HOST+":"+MySQLConnectionFactory.PORT+"/"+MySQLConnectionFactory.DATABASE;
-        MySQLConnectionFactory.USER = user;
-        MySQLConnectionFactory.PASSWORD = password;
+        DRIVER = DEFAULT_DRIVER;
+        HOST = host;
+        PORT = port;
+        DATABASE = database;
+        URL = "jdbc:mysql://"+HOST+":"+PORT+"/"+DATABASE;
+        USER = user;
+        PASSWORD = password;
         
     }
     
     private static void loadClass(String database) {
         
-        MySQLConnectionFactory.DRIVER = MySQLConnectionFactory.DEFAULT_DRIVER;
-        MySQLConnectionFactory.HOST = MySQLConnectionFactory.DEFAULT_HOST;
-        MySQLConnectionFactory.PORT = MySQLConnectionFactory.DEFAULT_PORT;
-        MySQLConnectionFactory.DATABASE = database;
-        MySQLConnectionFactory.USER = MySQLConnectionFactory.DEFAULT_USER;
-        MySQLConnectionFactory.PASSWORD = MySQLConnectionFactory.DEFAULT_PASSWORD;
-        MySQLConnectionFactory.URL = "jdbc:mysql://"+MySQLConnectionFactory.HOST+":"+MySQLConnectionFactory.PORT+"/"+MySQLConnectionFactory.DATABASE;
+        DRIVER = DEFAULT_DRIVER;
+        HOST = DEFAULT_HOST;
+        PORT = DEFAULT_PORT;
+        DATABASE = database;
+        USER = DEFAULT_USER;
+        PASSWORD = DEFAULT_PASSWORD;
+        URL = "jdbc:mysql://"+HOST+":"+PORT+"/"+DATABASE;
         
         
     }
