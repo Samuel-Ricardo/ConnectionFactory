@@ -83,4 +83,15 @@ public class MySQLConnectionFactory {
    
         return connection;
     }
+    
+    public static Connection getConnection(String host, String port, String database, String user, String password) throws ClassNotFoundException, SQLException {
+        
+        loadClass(host, port, database, user, password);
+        
+        Class.forName(DRIVER);
+        
+        connection = DriverManager.getConnection(URL, USER, PASSWORD);
+   
+        return connection;
+    }
 }
