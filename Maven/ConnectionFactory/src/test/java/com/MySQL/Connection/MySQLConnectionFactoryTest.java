@@ -26,10 +26,8 @@ public class MySQLConnectionFactoryTest {
         
     }
     
-    
-    
     @Test
-    public void InvalidDataBaseTest() throws Exception {
+    public void InvalidDatabaseTest() throws Exception {
      
         try {
 
@@ -84,6 +82,22 @@ public class MySQLConnectionFactoryTest {
         try {
 
             Connection result = getConnection(DEFAULT_HOST, "3308", "dbbiblio", "INVALID_USER", DEFAULT_PASSWORD);
+
+            assertEquals(null, result);
+            
+            fail("No Exception"); 
+
+        } catch (RuntimeException ex) {
+
+            assertEquals(RuntimeException.class, ex.getClass());
+        }
+    }
+    @Test
+    public void InvalidPasswordTest() throws Exception {
+     
+        try {
+
+            Connection result = getConnection(DEFAULT_HOST, "3308", "dbbiblio", DEFAULT_USER, "INVALID_PASSWORD");
 
             assertEquals(null, result);
             
