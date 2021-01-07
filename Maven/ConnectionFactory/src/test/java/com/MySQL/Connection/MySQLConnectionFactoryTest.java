@@ -111,6 +111,21 @@ public class MySQLConnectionFactoryTest {
         }
     }
     
-    
+    @Test
+    public void InvalidDriverTest() throws Exception {
+     
+        try {
+
+            Connection result = getConnection("INVALID_DRIVER",DEFAULT_HOST, "3308", "dbbiblio", DEFAULT_USER, "INVALID_PASSWORD");
+
+            assertEquals(null, result);
+            
+            fail("No Exception"); 
+
+        } catch (RuntimeException ex) {
+
+            assertEquals(RuntimeException.class, ex.getClass());
+        }
+    }
     
 }
