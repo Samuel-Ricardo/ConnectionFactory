@@ -80,13 +80,33 @@ public class MySQLConnectionFactory {
     
     public static Connection getConnection(String database) throws ClassNotFoundException, SQLException {
         
-        loadClass(database);
+        try {
+            loadClass(database);
+
+            Class.forName(DRIVER);
+
+            connection = DriverManager.getConnection(URL, USER, PASSWORD);
+
+            return connection;
         
-        Class.forName(DRIVER);
-        
-        connection = DriverManager.getConnection(URL, USER, PASSWORD);
-   
-        return connection;
+        } catch (ClassNotFoundException ex) {
+            
+            Logger.getLogger(MySQLConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
+            
+            throw new RuntimeException("Error at trying to import DRIVER: " + ex
+                                  + "\n"
+                                  + "\n"
+                                  + "\n Cause: "+ ex.getCause());
+           
+        } catch (SQLException ex) {
+            
+            Logger.getLogger(MySQLConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
+            
+            throw new RuntimeException("Error at trying to Connect: " + ex
+                                  + "\n"
+                                  + "\n"
+                                  + "\n Cause: "+ ex.getCause());
+        }
     }
     
     public static Connection getConnection(String host, String port, String database, String user, String password) {
@@ -119,4 +139,6 @@ public class MySQLConnectionFactory {
                                   + "\n Cause: "+ ex.getCause());
         }
     }
+    
+    
 }

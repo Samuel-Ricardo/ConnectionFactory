@@ -76,6 +76,7 @@ public class MySQLConnectionFactoryTest {
             assertEquals(RuntimeException.class, ex.getClass());
         }
     }
+    
     @Test
     public void InvalidUserTest() throws Exception {
      
@@ -92,6 +93,7 @@ public class MySQLConnectionFactoryTest {
             assertEquals(RuntimeException.class, ex.getClass());
         }
     }
+    
     @Test
     public void InvalidPasswordTest() throws Exception {
      
@@ -108,5 +110,7 @@ public class MySQLConnectionFactoryTest {
             assertEquals(RuntimeException.class, ex.getClass());
         }
     }
+    
+    
     
 }
