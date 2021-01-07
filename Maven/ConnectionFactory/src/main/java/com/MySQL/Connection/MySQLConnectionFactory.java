@@ -112,7 +112,7 @@ public class MySQLConnectionFactory {
     *
     *<P> Default Database User Registred
     * 
-    * @serial  DEFAULT_USER
+    * @serial  DEFAULT_USER {@value}
     * @see #USER
     */
     public static final String DEFAULT_USER = "root";
@@ -121,7 +121,7 @@ public class MySQLConnectionFactory {
     *
     * <P>Default Database Password Registred
     * 
-    * @serial  DEFAULT_PASSWORD
+    * @serial  DEFAULT_PASSWORD {@value}
     * @see #PASSWORD
     */
     public static final String DEFAULT_PASSWORD = "";
@@ -134,7 +134,7 @@ public class MySQLConnectionFactory {
     * 
     * <P>if you use an older JDBC such as mysql-connector-java 5.1.48, then use {@link #OLD_DEFAULT_DRIVER}
     * 
-    * @serial  DEFAULT_DRIVER
+    * @serial  DEFAULT_DRIVER  {@value}
     * @see #DRIVER
     * @see #OLD_DEFAULT_DRIVER 
     */
@@ -148,7 +148,7 @@ public class MySQLConnectionFactory {
     *
     * <P> if you use a newer JDBC, like mysql-connector-java 8.0.22, use {@link #OLD_DEFAULT_DRIVER}
     *
-    * @serial  OLD_DEFAULT_DRIVER
+    * @serial  OLD_DEFAULT_DRIVER {@value}
     * @see #DRIVER
     * @see #DEFAULT_DRIVER 
     */
@@ -158,7 +158,7 @@ public class MySQLConnectionFactory {
     *
     * <P>Default Database Host
     * 
-    * @serial  DEFAULT_HOST
+    * @serial  DEFAULT_HOST {@value}
     * @see #HOST
     */
     public static final String DEFAULT_HOST = "localhost";
@@ -167,7 +167,7 @@ public class MySQLConnectionFactory {
     *
     * <P>Default Database Port
     * 
-    * @serial  DEFAULT_PORT
+    * @serial  DEFAULT_PORT  {@value}
     * @see #PORT
     */
     public static final String DEFAULT_PORT = "3306";
