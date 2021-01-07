@@ -322,6 +322,11 @@ public class MySQLConnectionFactory {
                     
                 } catch (SQLException ex) {
                     Logger.getLogger(MySQLConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
+            
+                    throw new RuntimeException("Error at trying to Disconnect: " + ex
+                                          + "\n"
+                                          + "\n"
+                                          + "\n Cause: "+ ex.getCause());
                 }
             }
     }
