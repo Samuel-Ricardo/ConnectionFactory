@@ -185,7 +185,7 @@ public class MySQLConnectionFactory {
         DATABASE = database;
         USER = user;
         PASSWORD = password;
-        URL = getURL();
+        URL = getURL(HOST,PORT,DATABASE);
         
     }
     
@@ -208,7 +208,7 @@ public class MySQLConnectionFactory {
         DATABASE = database;
         USER = user;
         PASSWORD = password;
-        URL = getURL();
+        URL = getURL(HOST,PORT,DATABASE);
         
     }
 
@@ -227,7 +227,7 @@ public class MySQLConnectionFactory {
         DATABASE = database;
         USER = DEFAULT_USER;
         PASSWORD = DEFAULT_PASSWORD;
-        URL = getURL();
+        URL = getURL(HOST,PORT,DATABASE);
         
     }
     
@@ -549,7 +549,9 @@ public class MySQLConnectionFactory {
         }
     }
     
-    private static String getURL() {
-        return "jdbc:mysql://"+HOST+":"+PORT+"/"+DATABASE+"?useTimezone=true&serverTimezone=UTC";
+    
+    
+    public static String getURL(String host, String port, String database) {
+        return "jdbc:mysql://"+host+":"+port+"/"+database+"?useTimezone=true&serverTimezone=UTC";
     }
 }
