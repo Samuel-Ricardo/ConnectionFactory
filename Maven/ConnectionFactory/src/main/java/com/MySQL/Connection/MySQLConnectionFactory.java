@@ -566,4 +566,32 @@ public class MySQLConnectionFactory {
     public static String getURL(String host, String port, String database) {
         return "jdbc:mysql://"+host+":"+port+"/"+database+"?useTimezone=true&serverTimezone=UTC";
     }
+
+    public static String getDRIVER() {
+        return DRIVER;
+    }
+
+    public static String getHOST() {
+        return HOST;
+    }
+
+    public static String getPORT() {
+        return PORT;
+    }
+
+    public static String getDATABASE() {
+        return DATABASE;
+    }
+
+    public static String getURL() {
+        return URL;
+    }
+
+    public static String getUSER() {
+        return USER;
+    }
+
+    public static String getPASSWORD() {
+        return PASSWORD;
+    }
 }
