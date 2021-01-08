@@ -165,8 +165,18 @@ public class MySQLConnectionFactory {
     */
     public static final String DEFAULT_PORT = "3306";
 
-    
-    
+    /**
+     *
+     * method responsible for loading the class with the necessary data to make 
+     * the connection to the database
+     * 
+     * @param drive
+     * @param host
+     * @param port
+     * @param database
+     * @param user
+     * @param password
+     */
     private static void loadClass(String drive, String host, String port, String database, String user, String password) {
         
         DRIVER = drive;
@@ -179,6 +189,17 @@ public class MySQLConnectionFactory {
         
     }
     
+    /**
+     *
+     * method responsible for loading the class with the necessary data to make 
+     * the connection to the database
+     * 
+     * @param host
+     * @param port
+     * @param database
+     * @param user
+     * @param password
+     */
     private static void loadClass(String host, String port, String database, String user, String password) {
         
         DRIVER = DEFAULT_DRIVER;
@@ -191,10 +212,13 @@ public class MySQLConnectionFactory {
         
     }
 
-    private static String getURL() {
-        return "jdbc:mysql://"+HOST+":"+PORT+"/"+DATABASE+"?useTimezone=true&serverTimezone=UTC";
-    }
-    
+    /**
+     *
+     * method responsible for loading the class with the necessary data to make 
+     * the connection to the database
+     * 
+     * @param database
+     */
     private static void loadClass(String database) {
         
         DRIVER = DEFAULT_DRIVER;
@@ -207,6 +231,18 @@ public class MySQLConnectionFactory {
         
     }
     
+    /**
+     *
+     * method responsible for creating a connection
+     * 
+     * if it catches any error it will <code>throw</code> {@link RuntimeException}
+     *   
+     * if successful it will <code>return</code> a {@link Connection}
+     * 
+     * @param database
+     * @return
+     * @throws RuntimeException
+     */
     public static Connection getConnection(String database) {
         
         try {
@@ -329,6 +365,7 @@ public class MySQLConnectionFactory {
     /**
      *
      * @param connection
+     * @return
      */
     public static boolean closeConnection(Connection connection){
             
@@ -417,5 +454,9 @@ public class MySQLConnectionFactory {
         }else{
             return false;
         }
+    }
+    
+    private static String getURL() {
+        return "jdbc:mysql://"+HOST+":"+PORT+"/"+DATABASE+"?useTimezone=true&serverTimezone=UTC";
     }
 }
