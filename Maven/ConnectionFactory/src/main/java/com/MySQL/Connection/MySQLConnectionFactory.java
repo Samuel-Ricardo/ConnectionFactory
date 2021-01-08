@@ -604,6 +604,10 @@ public class MySQLConnectionFactory {
         return PORT;
     }
 
+    /**
+     *
+     * @return <P> Name of the Database to be Connected
+     */
     public static String getDATABASE() {
         return DATABASE;
     }
