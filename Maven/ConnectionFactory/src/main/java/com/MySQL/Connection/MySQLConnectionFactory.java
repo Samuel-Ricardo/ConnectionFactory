@@ -62,7 +62,7 @@ public class MySQLConnectionFactory {
     
     /**
     *
-    *<P> name of the database to be connected
+    *<P> Name of the Database to be Connected
     * 
     * @serial  DATABASE
     */
@@ -170,16 +170,16 @@ public class MySQLConnectionFactory {
      * method responsible for loading the class with the necessary data to make 
      * the connection to the database
      * 
-     * @param drive
-     * @param host
-     * @param port
-     * @param database
-     * @param user
-     * @param password
+     * @param driver Driver location
+     * @param host Database Host
+     * @param port Database Port
+     * @param database Name of the Database to be Connected
+     * @param user Database User Registred
+     * @param password Database Password Registred
      */
-    private static void loadClass(String drive, String host, String port, String database, String user, String password) {
+    private static void loadClass(String driver, String host, String port, String database, String user, String password) {
         
-        DRIVER = drive;
+        DRIVER = driver;
         HOST = host;
         PORT = port;
         DATABASE = database;
@@ -194,11 +194,11 @@ public class MySQLConnectionFactory {
      * method responsible for loading the class with the necessary data to make 
      * the connection to the database
      * 
-     * @param host
-     * @param port
-     * @param database
-     * @param user
-     * @param password
+     * @param host Database Host
+     * @param port Database Port
+     * @param database Name of the Database to be Connected
+     * @param user Database User Registred
+     * @param password Database Password Registred
      */
     private static void loadClass(String host, String port, String database, String user, String password) {
         
@@ -217,7 +217,7 @@ public class MySQLConnectionFactory {
      * method responsible for loading the class with the necessary data to make 
      * the connection to the database
      * 
-     * @param database
+     * @param database Name of the Database to be Connected
      */
     private static void loadClass(String database) {
         
@@ -241,10 +241,10 @@ public class MySQLConnectionFactory {
      * 
      * <P>if he imported the driver with success, he will <code>try</code> to connect to the database, if he <code>catch</code> an {@link SQLException} he will <code>throw</code> {@link RuntimeException}
      *   
-     * <P>if everything is successful, it will be <code>return</code> a {@link Connection}
      * 
-     * @param database
-     * @return
+     * @param database Name of the Database to be Connected
+     * 
+     * @return if everything is successful, it will be <code>return</code> a {@link Connection}
      * @throws RuntimeException
      */
     public static Connection getConnection(String database) {
@@ -294,15 +294,14 @@ public class MySQLConnectionFactory {
      * <P>after he <code>try</code> to import the driver, if he <code>catch</code> an {@link ClassNotFoundException} he will <code>throw</code> a {@link RuntimeException}
      * 
      * <P>if he imported the driver with success, he will <code>try</code> to connect to the database, if he <code>catch</code> an {@link SQLException} he will <code>throw</code> {@link RuntimeException}
-     *   
-     * <P>if everything is successful, it will be <code>return</code> a {@link Connection}
      *
-     * @param host
-     * @param port
-     * @param database
-     * @param user
-     * @param password
-     * @return
+     * @param host Database Host
+     * @param port Database Port
+     * @param database Name of the Database to be Connected
+     * @param user Database User Registred
+     * @param password Database Password Registred
+     * 
+     * @return if everything is successful, it will be <code>return</code> a {@link Connection}
      * @throws RuntimeException
      */
     public static Connection getConnection(String host, String port, String database, String user, String password) {
@@ -352,16 +351,15 @@ public class MySQLConnectionFactory {
      * <P>after he <code>try</code> to import the driver, if he <code>catch</code> an {@link ClassNotFoundException} he will <code>throw</code> a {@link RuntimeException}
      * 
      * <P>if he imported the driver with success, he will <code>try</code> to connect to the database, if he <code>catch</code> an {@link SQLException} he will <code>throw</code> {@link RuntimeException}
-     *   
-     * <P>if everything is successful, it will be <code>return</code> a {@link Connection}
      *
-     * @param driver
-     * @param host
-     * @param port
-     * @param database
-     * @param user
-     * @param password
-     * @return 
+     * @param driver Driver location
+     * @param host Database Host
+     * @param port Database Port
+     * @param database Name of the Database to be Connected
+     * @param user Database User Registred
+     * @param password Database Password Registred
+     * 
+     * @return if everything is successful, it will be <code>return</code> a {@link Connection}
      * @throws RuntimeException
      */
     public static Connection getConnection(String driver, String host, String port, String database, String user, String password) {
@@ -416,10 +414,9 @@ public class MySQLConnectionFactory {
      * 
      *<P> if the method <CODE>catch</CODE> an error it <code>throw</code> {@link RuntimeException}
      * 
-     *<P>if everything is successful, it will be <code>return true</code>
-     * 
      * @param connection
-     * @return
+     * 
+     * @return if everything is successful, it will be <code>return true</code>
      * @throws RuntimeException
      */
     public static boolean closeConnection(Connection connection){
@@ -463,11 +460,10 @@ public class MySQLConnectionFactory {
      * 
      *<P> if the method <CODE>catch</CODE> an error it <code>throw</code> {@link RuntimeException}
      * 
-     *<P> if everything is successful, it will be <code>return true</code>
-     * 
      * @param connection
      * @param statement
-     * @return
+     * 
+     * @return if everything is successful, it will be <code>return true</code>
      * @throws RuntimeException
      */
     public static boolean closeConnection(Connection connection, PreparedStatement statement ){ 
@@ -502,6 +498,7 @@ public class MySQLConnectionFactory {
                 return false;
             }
     }
+    
     
     public static boolean closeConnection(Connection connection, PreparedStatement statement, ResultSet result){
         
