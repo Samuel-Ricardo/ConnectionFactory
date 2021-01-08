@@ -233,11 +233,13 @@ public class MySQLConnectionFactory {
     
     /**
      *
-     * method responsible for creating a connection
+     * <P>first it calls the {@link #loadClass(java.lang.String)} function that loads the class with the data passed by parameter
      * 
-     * if it <code>catch</code> a {@link ClassNotFoundException} or {@link SQLException} it will <code>throw</code> {@link RuntimeException}
+     * <P>after he <code>try</code> to import the driver, if he <code>catch</code> an {@link ClassNotFoundException} he will <code>throw</code> a {@link RuntimeException}
+     * 
+     * <P>if he imported the driver with success, he will <code>try</code> to connect to the database, if he <code>catch</code> an {@link SQLException} he will <code>throw</code> {@link RuntimeException}
      *   
-     * if successful it will <code>return</code> a {@link Connection}
+     * <P>if everything is successful, it will be <code>return</code> a {@link Connection}
      * 
      * @param database
      * @return
@@ -397,6 +399,8 @@ public class MySQLConnectionFactory {
         
     /**
      *
+     * 
+     * 
      * @param connection
      * @return
      */
