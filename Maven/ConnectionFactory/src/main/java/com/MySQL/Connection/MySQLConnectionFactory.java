@@ -567,10 +567,21 @@ public class MySQLConnectionFactory {
         return "jdbc:mysql://"+host+":"+port+"/"+database+"?useTimezone=true&serverTimezone=UTC";
     }
 
+    /**
+    * <P>The Driver receives by default: {@link #DEFAULT_DRIVER}, however, it can be <BR>
+    * modified by calling the {@link #getConnection(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)} <BR>
+    * method by passing driver as a parameter
+    * 
+    * @serial  DRIVER
+    * @see #DEFAULT_DRIVER
+    * 
+    * @return <P> Driver location
+    */
     public static String getDRIVER() {
         return DRIVER;
     }
 
+    
     public static String getHOST() {
         return HOST;
     }
