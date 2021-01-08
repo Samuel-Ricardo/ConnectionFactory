@@ -29,6 +29,15 @@ public class MySQLConnectionFactoryTest {
     }
     
     @Test
+    public void SuccessTestGetURL() throws Exception {
+        
+        String url = getURL(DEFAULT_HOST, DEFAULT_PORT, "dbbiblio");
+                
+        assertEquals("jdbc:mysql://"+DEFAULT_HOST+":"+DEFAULT_PORT+"/dbbiblio?useTimezone=true&serverTimezone=UTC", url);
+        
+    }
+    
+    @Test
     public void InvalidDatabaseTest() throws Exception {
      
         try {
