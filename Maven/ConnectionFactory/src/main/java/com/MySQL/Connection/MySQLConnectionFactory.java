@@ -581,7 +581,13 @@ public class MySQLConnectionFactory {
         return DRIVER;
     }
 
-    
+    /**
+     * <P>if you don't know or use a standard Host, try to use the {@link #DEFAULT_HOST}
+     * 
+     * @see #DEFAULT_HOST
+     * 
+     * @return <P> Database Host
+     */
     public static String getHOST() {
         return HOST;
     }
