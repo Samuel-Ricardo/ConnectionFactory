@@ -8,6 +8,7 @@ package com.MySQL.Connection;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -386,5 +387,35 @@ public class MySQLConnectionFactory {
             return false;
         }
         
+    }
+    
+    public static boolean closeConnection(Connection connection, PreparedStatement statement, ResultSet result){
+        
+        closeConnection(connection, statement);
+        
+        if(result != null){
+            
+            try {
+                if(result.isClosed() == false){
+                    
+                    result.close();
+                    
+                    return true;
+                }else{
+                    
+                    return false;
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(MySQLConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
+                
+                throw new RuntimeException("Error at trying to Disconnect: " + ex
+                                          + "\n"
+                                          + "\n"
+                                          + "\n Cause: "+ ex.getCause());
+            }
+            
+        }else{
+            return false;
+        }
     }
 }
