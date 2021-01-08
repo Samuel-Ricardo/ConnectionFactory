@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static com.MySQL.Connection.MySQLConnectionFactory.*;
 import com.mysql.cj.jdbc.ConnectionImpl;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 
 /**
  *
@@ -133,6 +134,20 @@ public class MySQLConnectionFactoryTest {
         
         Connection connection = getConnection(DEFAULT_HOST, "3308", "dbbiblio", DEFAULT_USER, DEFAULT_PASSWORD);
         
-        assertEquals(true, closeConnection(connection));
+        closeConnection(connection);
+        
+        assertEquals(true, connection.isClosed());
+    }
+    
+    @Test
+    public void SuccessTestCloseConnectionAndPreparedStatement() throws Exception {
+        
+        Connection connection = getConnection(DEFAULT_HOST, "3308", "dbbiblio", DEFAULT_USER, DEFAULT_PASSWORD);
+        
+        PreparedStatement statement = connection.prepareStatement("SQL");
+        
+        closeConnection(connection, statement);
+        
+        assertEquals(true, statement.isClosed() && connection.isClosed());
     }
 }
