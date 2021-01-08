@@ -96,15 +96,6 @@ public class MySQLConnectionFactory {
     */
     private static String PASSWORD;
     
-    /**
-    *
-    * {@inheritDoc}
-    * 
-    * @serial  connection
-    * @see #{@link com.mysql.cj.jdbc.ConnectionImpl}
-    */
-    private static Connection connection;
-    
     
     
     
@@ -221,7 +212,7 @@ public class MySQLConnectionFactory {
 
             Class.forName(DRIVER);
 
-            connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
 
             return connection;
         
@@ -259,7 +250,7 @@ public class MySQLConnectionFactory {
             
             Class.forName(DRIVER);
             
-            connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
             
             return connection;
             
@@ -297,7 +288,7 @@ public class MySQLConnectionFactory {
             
             Class.forName(DRIVER);
             
-            connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
             
             return connection;
             
@@ -361,4 +352,6 @@ public class MySQLConnectionFactory {
                 return false;
             }
     }
+    
+
 }
