@@ -11,6 +11,7 @@ import static com.MySQL.Connection.MySQLConnectionFactory.*;
 import com.mysql.cj.jdbc.ConnectionImpl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 /**
  *
@@ -144,10 +145,24 @@ public class MySQLConnectionFactoryTest {
         
         Connection connection = getConnection(DEFAULT_HOST, "3308", "dbbiblio", DEFAULT_USER, DEFAULT_PASSWORD);
         
-        PreparedStatement statement = connection.prepareStatement("SQL");
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM tb_book;");
         
         closeConnection(connection, statement);
         
         assertEquals(true, statement.isClosed() && connection.isClosed());
+    }
+    
+    @Test
+    public void SuccessTestCloseConnectionAndPreparedStatementAndResultSet() throws Exception {
+        
+        Connection connection = getConnection(DEFAULT_HOST, "3308", "dbbiblio", DEFAULT_USER, DEFAULT_PASSWORD);
+        
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM tb_book;");
+        
+        ResultSet result = statement.executeQuery();
+        
+        closeConnection(connection, statement, result);
+        
+        assertEquals(true, statement.isClosed() && connection.isClosed() && result.isClosed());
     }
 }
