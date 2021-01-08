@@ -416,8 +416,11 @@ public class MySQLConnectionFactory {
      * 
      *<P> if the method <CODE>catch</CODE> an error it <code>throw</code> {@link RuntimeException}
      * 
+     *<P>if everything is successful, it will be <code>return true</code>
+     * 
      * @param connection
      * @return
+     * @throws RuntimeException
      */
     public static boolean closeConnection(Connection connection){
             
@@ -449,38 +452,55 @@ public class MySQLConnectionFactory {
             }
     }
     
+    /**
+     *
+     *<P> Method responsible for closing the connection 
+     * 
+     *<P> it calls the {@link #closeConnection(java.sql.Connection)}
+     * 
+     *<P> the method <CODE>return false</CODE> if the PreparedStatement has not been closed, 
+     * this is because the PreparedStatement is <CODE>null</CODE> or is already closed
+     * 
+     *<P> if the method <CODE>catch</CODE> an error it <code>throw</code> {@link RuntimeException}
+     * 
+     *<P> if everything is successful, it will be <code>return true</code>
+     * 
+     * @param connection
+     * @param statement
+     * @return
+     * @throws RuntimeException
+     */
     public static boolean closeConnection(Connection connection, PreparedStatement statement ){ 
 
         closeConnection(connection);
         
-        if(statement != null){
-            
-            try {
-                if(statement.isClosed() == false){
-                    
-                       statement.close();
-                       
-                       return true;
-                }else{
-                    return false; 
+            if(statement != null){
+
+                try {
+                    if(statement.isClosed() == false){
+
+                           statement.close();
+
+                           return true;
+                    }else{
+                        return false; 
+                    }
+
+                } catch (SQLException ex) {
+
+                    Logger.getLogger(MySQLConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
+
+                    throw new RuntimeException("Error at trying to Disconnect: " + ex
+                                              + "\n"
+                                              + "\n"
+                                              + "\n Cause: "+ ex.getCause());
+
                 }
-                
-            } catch (SQLException ex) {
-                
-                Logger.getLogger(MySQLConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
-                
-                throw new RuntimeException("Error at trying to Disconnect: " + ex
-                                          + "\n"
-                                          + "\n"
-                                          + "\n Cause: "+ ex.getCause());
-                    
+
+            }else{
+
+                return false;
             }
-            
-        }else{
-            
-            return false;
-        }
-        
     }
     
     public static boolean closeConnection(Connection connection, PreparedStatement statement, ResultSet result){
