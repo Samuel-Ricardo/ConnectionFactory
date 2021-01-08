@@ -235,7 +235,7 @@ public class MySQLConnectionFactory {
      *
      * method responsible for creating a connection
      * 
-     * if it catches any error it will <code>throw</code> {@link RuntimeException}
+     * if it <code>catch</code> a {@link ClassNotFoundException} or {@link SQLException} it will <code>throw</code> {@link RuntimeException}
      *   
      * if successful it will <code>return</code> a {@link Connection}
      * 
@@ -281,6 +281,22 @@ public class MySQLConnectionFactory {
         }
     }
     
+    /**
+     *
+     * method responsible for creating a connection
+     * 
+     * if it <code>catch</code> a {@link ClassNotFoundException} or {@link SQLException} it will <code>throw</code> {@link RuntimeException}
+     *   
+     * if successful it will <code>return</code> a {@link Connection}
+     *
+     * @param host
+     * @param port
+     * @param database
+     * @param user
+     * @param password
+     * @return
+     * @throws RuntimeException
+     */
     public static Connection getConnection(String host, String port, String database, String user, String password) {
         
         try {
