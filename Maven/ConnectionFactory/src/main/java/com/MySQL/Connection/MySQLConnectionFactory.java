@@ -232,6 +232,8 @@ public class MySQLConnectionFactory {
     }
     
     /**
+     * 
+     * <P> Method responsible for making a connection
      *
      * <P>first it calls the {@link #loadClass(java.lang.String)} function that loads the class with the data passed by parameter
      * 
@@ -285,6 +287,8 @@ public class MySQLConnectionFactory {
     
     /**
      *
+     * <P> Method responsible for making a connection
+     * 
      * <P>first it calls the {@link #loadClass(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) } function that loads the class with the data passed by parameter
      * 
      * <P>after he <code>try</code> to import the driver, if he <code>catch</code> an {@link ClassNotFoundException} he will <code>throw</code> a {@link RuntimeException}
@@ -341,6 +345,8 @@ public class MySQLConnectionFactory {
     
     /**
      *
+     * <P> Method responsible for making a connection
+     * 
      * <P>first it calls the {@link #loadClass(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) } function that loads the class with the data passed by parameter
      * 
      * <P>after he <code>try</code> to import the driver, if he <code>catch</code> an {@link ClassNotFoundException} he will <code>throw</code> a {@link RuntimeException}
@@ -403,7 +409,12 @@ public class MySQLConnectionFactory {
         
     /**
      *
+     * <P> Method responsible for closing the connection
      * 
+     *<P> the method <CODE>return false</CODE> if the connection has not been closed, 
+     * this is because the connection is <CODE>null</CODE> or is already closed
+     * 
+     *<P> if the method <CODE>catch</CODE> an error it <code>throw</code> {@link RuntimeException}
      * 
      * @param connection
      * @return
@@ -414,9 +425,14 @@ public class MySQLConnectionFactory {
                 
                 try {
                     
-                    connection.close();
+                    if(connection.isClosed() == false){
                     
-                    return true;
+                        connection.close();
+
+                        return true;
+                      }else{
+                            return false;
+                    }
                     
                 } catch (SQLException ex) {
                     Logger.getLogger(MySQLConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
