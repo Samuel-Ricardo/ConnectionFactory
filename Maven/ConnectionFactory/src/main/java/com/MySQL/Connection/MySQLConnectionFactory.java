@@ -146,7 +146,7 @@ public class MySQLConnectionFactory {
     * 
     * <P> This driver refers to older JDBCs as mysql-connector-java 5.1.48
     *
-    * <P> if you use a newer JDBC, like mysql-connector-java 8.0.22, use {@link #OLD_DEFAULT_DRIVER}
+    * <P> if you use a newer JDBC, like mysql-connector-java 8.0.22, use {@link #DEFAULT_DRIVER}
     *
     * @serial  OLD_DEFAULT_DRIVER {@value}
     * @see #DRIVER
@@ -214,7 +214,7 @@ public class MySQLConnectionFactory {
         
     }
     
-    public static Connection getConnection(String database) throws ClassNotFoundException, SQLException {
+    public static Connection getConnection(String database) {
         
         try {
             loadClass(database);
@@ -241,7 +241,14 @@ public class MySQLConnectionFactory {
             throw new RuntimeException("Error at trying to Connect: " + ex
                                   + "\n"
                                   + "\n"
-                                  + "\n Cause: "+ ex.getCause());
+                                  + "\n Cause: "+ ex.getCause()
+                                  + "\n"
+                                  + "\n Recommendations:"
+                                  + "\n"
+                                  + "\n Check the internet connection;"
+                                  + "\n"
+                                  + "\n"
+                                  + "\n Check if the database you passed as a parameter is correct;");
         }
     }
     
@@ -272,7 +279,14 @@ public class MySQLConnectionFactory {
             throw new RuntimeException("Error at trying to Connect: " + ex
                                   + "\n"
                                   + "\n"
-                                  + "\n Cause: "+ ex.getCause());
+                                  + "\n Cause: "+ ex.getCause()
+                                  + "\n"
+                                  + "\n Recommendations:"
+                                  + "\n"
+                                  + "\n Check the internet connection;"
+                                  + "\n"
+                                  + "\n"
+                                  + "\n Check if the parameters you passed are correct;");
         }
     }
     
@@ -294,7 +308,11 @@ public class MySQLConnectionFactory {
             throw new RuntimeException("Error at trying to import DRIVER: " + ex
                                   + "\n"
                                   + "\n"
-                                  + "\n Cause: "+ ex.getCause());
+                                  + "\n Cause: "+ ex.getCause()
+                                  + "\n"
+                                  + "\n Recommendations:"
+                                  + "\n"
+                                  + "\n Check if the Driver you passed as a parameter is correct;");
            
         } catch (SQLException ex) {
             
@@ -303,7 +321,14 @@ public class MySQLConnectionFactory {
             throw new RuntimeException("Error at trying to Connect: " + ex
                                   + "\n"
                                   + "\n"
-                                  + "\n Cause: "+ ex.getCause());
+                                  + "\n Cause: "+ ex.getCause()
+                                  + "\n"
+                                  + "\n Recommendations:"
+                                  + "\n"
+                                  + "\n Check the internet connection;"
+                                  + "\n"
+                                  + "\n"
+                                  + "\n Check if the parameters you passed are correct;");
         }
         
     }  
@@ -312,13 +337,15 @@ public class MySQLConnectionFactory {
      *
      * @param connection
      */
-    public static void closeConnection(Connection connection){
+    public static boolean closeConnection(Connection connection){
             
             if (connection != null ){
                 
                 try {
                     
                     connection.close();
+                    
+                    return true;
                     
                 } catch (SQLException ex) {
                     Logger.getLogger(MySQLConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
@@ -327,7 +354,11 @@ public class MySQLConnectionFactory {
                                           + "\n"
                                           + "\n"
                                           + "\n Cause: "+ ex.getCause());
+                    
                 }
+            }else{
+                
+                return false;
             }
     }
 }
