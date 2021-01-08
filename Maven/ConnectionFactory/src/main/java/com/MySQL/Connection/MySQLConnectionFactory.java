@@ -245,7 +245,7 @@ public class MySQLConnectionFactory {
      * @param database Name of the Database to be Connected
      * 
      * @return if everything is successful, it will be <code>return</code> a {@link Connection}
-     * @throws RuntimeException
+     * @throws RuntimeException  if the method <CODE>catch</CODE> {@link SQLException} or {@link ClassNotFoundException}
      */
     public static Connection getConnection(String database) {
         
@@ -302,7 +302,7 @@ public class MySQLConnectionFactory {
      * @param password Database Password Registred
      * 
      * @return if everything is successful, it will be <code>return</code> a {@link Connection}
-     * @throws RuntimeException
+     * @throws RuntimeException  if the method <CODE>catch</CODE> {@link SQLException} or {@link ClassNotFoundException}
      */
     public static Connection getConnection(String host, String port, String database, String user, String password) {
         
@@ -360,7 +360,7 @@ public class MySQLConnectionFactory {
      * @param password Database Password Registred
      * 
      * @return if everything is successful, it will be <code>return</code> a {@link Connection}
-     * @throws RuntimeException
+     * @throws RuntimeException  if the method <CODE>catch</CODE> {@link SQLException} or {@link ClassNotFoundException}
      */
     public static Connection getConnection(String driver, String host, String port, String database, String user, String password) {
         
@@ -406,17 +406,15 @@ public class MySQLConnectionFactory {
     }  
         
     /**
-     *
      * <P> Method responsible for closing the connection
-     * 
-     *<P> the method <CODE>return false</CODE> if the connection has not been closed, 
-     * this is because the connection is <CODE>null</CODE> or is already closed
-     * 
-     *<P> if the method <CODE>catch</CODE> {@link SQLException} it <code>throw</code> {@link RuntimeException}
      * 
      * @param connection Connection to be closed
      * 
-     * @return if everything is successful, it will be <code>return true</code>
+     * @return
+     *  <P> <CODE>false</CODE> - if the Connection has not been closed, 
+     * this is because the Connection is <CODE>null</CODE> or is already closed
+     *  
+     *  <P> <code>true</code> - if everything is successful
      * 
      * @throws RuntimeException  if the method <CODE>catch</CODE> {@link SQLException}
      */
@@ -451,20 +449,18 @@ public class MySQLConnectionFactory {
     }
     
     /**
-     *
      *<P> Method responsible for closing the connection 
      * 
      *<P> It Calls The {@link #closeConnection(java.sql.Connection)}
      * 
-     *<P> the method <CODE>return false</CODE> if the PreparedStatement has not been closed, 
-     * this is because the PreparedStatement is <CODE>null</CODE> or is already closed
-     * 
-     *<P> if the method <CODE>catch</CODE> an {@link SQLException} it <code>throw</code> {@link RuntimeException}
-     * 
      * @param connection Connection to be closed
      * @param statement PreparedStatement to be closed
      * 
-     * @return if everything is successful, it will be <code>return true</code>
+     * @return
+     *  <P> <CODE>false</CODE> - if the PreparedStatement has not been closed, 
+     * this is because the PreparedStatement is <CODE>null</CODE> or is already closed
+     *  
+     *  <P> <code>true</code> - if everything is successful
      * 
      * @throws RuntimeException  if the method <CODE>catch</CODE> {@link SQLException}
      */
@@ -502,7 +498,6 @@ public class MySQLConnectionFactory {
     }
     
     /**
-     *
      *<P> Method responsible for closing the connection 
      * 
      *<P> It Calls The {@link #closeConnection(java.sql.Connection, java.sql.PreparedStatement)}
