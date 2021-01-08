@@ -235,7 +235,7 @@ public class MySQLConnectionFactory {
      * 
      * <P> Method responsible for making a connection
      *
-     * <P>first it calls the {@link #loadClass(java.lang.String)} function that loads the class with the data passed by parameter
+     * <P>first It Calls The {@link #loadClass(java.lang.String)} function that loads the class with the data passed by parameter
      * 
      * <P>after he <code>try</code> to import the driver, if he <code>catch</code> an {@link ClassNotFoundException} he will <code>throw</code> a {@link RuntimeException}
      * 
@@ -289,7 +289,7 @@ public class MySQLConnectionFactory {
      *
      * <P> Method responsible for making a connection
      * 
-     * <P>first it calls the {@link #loadClass(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) } function that loads the class with the data passed by parameter
+     * <P>first It Calls The {@link #loadClass(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) } function that loads the class with the data passed by parameter
      * 
      * <P>after he <code>try</code> to import the driver, if he <code>catch</code> an {@link ClassNotFoundException} he will <code>throw</code> a {@link RuntimeException}
      * 
@@ -346,7 +346,7 @@ public class MySQLConnectionFactory {
      *
      * <P> Method responsible for making a connection
      * 
-     * <P>first it calls the {@link #loadClass(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) } function that loads the class with the data passed by parameter
+     * <P>first It Calls The {@link #loadClass(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) } function that loads the class with the data passed by parameter
      * 
      * <P>after he <code>try</code> to import the driver, if he <code>catch</code> an {@link ClassNotFoundException} he will <code>throw</code> a {@link RuntimeException}
      * 
@@ -412,12 +412,13 @@ public class MySQLConnectionFactory {
      *<P> the method <CODE>return false</CODE> if the connection has not been closed, 
      * this is because the connection is <CODE>null</CODE> or is already closed
      * 
-     *<P> if the method <CODE>catch</CODE> an error it <code>throw</code> {@link RuntimeException}
+     *<P> if the method <CODE>catch</CODE> {@link SQLException} it <code>throw</code> {@link RuntimeException}
      * 
-     * @param connection
+     * @param connection Connection to be closed
      * 
      * @return if everything is successful, it will be <code>return true</code>
-     * @throws RuntimeException
+     * 
+     * @throws RuntimeException  if the method <CODE>catch</CODE> {@link SQLException}
      */
     public static boolean closeConnection(Connection connection){
             
@@ -453,18 +454,19 @@ public class MySQLConnectionFactory {
      *
      *<P> Method responsible for closing the connection 
      * 
-     *<P> it calls the {@link #closeConnection(java.sql.Connection)}
+     *<P> It Calls The {@link #closeConnection(java.sql.Connection)}
      * 
      *<P> the method <CODE>return false</CODE> if the PreparedStatement has not been closed, 
      * this is because the PreparedStatement is <CODE>null</CODE> or is already closed
      * 
-     *<P> if the method <CODE>catch</CODE> an error it <code>throw</code> {@link RuntimeException}
+     *<P> if the method <CODE>catch</CODE> an {@link SQLException} it <code>throw</code> {@link RuntimeException}
      * 
-     * @param connection
-     * @param statement
+     * @param connection Connection to be closed
+     * @param statement PreparedStatement to be closed
      * 
      * @return if everything is successful, it will be <code>return true</code>
-     * @throws RuntimeException
+     * 
+     * @throws RuntimeException  if the method <CODE>catch</CODE> {@link SQLException}
      */
     public static boolean closeConnection(Connection connection, PreparedStatement statement ){ 
 
@@ -499,7 +501,24 @@ public class MySQLConnectionFactory {
             }
     }
     
-    
+    /**
+     *
+     *<P> Method responsible for closing the connection 
+     * 
+     *<P> It Calls The {@link #closeConnection(java.sql.Connection, java.sql.PreparedStatement)}
+     * 
+     * @param connection Connection to be closed
+     * @param statement PreparedStatement to be closed
+     * @param result ResultSet to be closed
+     * 
+     * @return
+     *  <P> <CODE>false</CODE> - if the ResultSet has not been closed, 
+     * this is because the ResultSet is <CODE>null</CODE> or is already closed
+     *  
+     *  <P> <code>true</code> - if everything is successful
+     * 
+     * @throws RuntimeException  if the method <CODE>catch</CODE> {@link SQLException}
+     */
     public static boolean closeConnection(Connection connection, PreparedStatement statement, ResultSet result){
         
         closeConnection(connection, statement);
