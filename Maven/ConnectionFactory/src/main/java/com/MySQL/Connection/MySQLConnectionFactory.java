@@ -592,7 +592,15 @@ public class MySQLConnectionFactory {
         return HOST;
     }
 
+    /**
+    * <P>if you don't know or use a standard Port, try to use the {@link #DEFAULT_PORT}
+    * 
+    * @see #DEFAULT_PORT
+    * 
+    * @return<P>Database Port
+    */
     public static String getPORT() {
+        
         return PORT;
     }
 
