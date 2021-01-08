@@ -232,7 +232,6 @@ public class MySQLConnectionFactory {
     }
     
     /**
-     * 
      * <P> Method responsible for making a connection
      *
      * <P>first It Calls The {@link #loadClass(java.lang.String)} function that loads the class with the data passed by parameter
@@ -244,7 +243,11 @@ public class MySQLConnectionFactory {
      * 
      * @param database Name of the Database to be Connected
      * 
-     * @return if everything is successful, it will be <code>return</code> a {@link Connection}
+     * @return
+     *  <P> {@link Connection} - if everything is successful 
+     * 
+     *  <P> <CODE>null</CODE> - if <code>catch</code> a <code>Exception</code>
+     * 
      * @throws RuntimeException  if the method <CODE>catch</CODE> {@link SQLException} or {@link ClassNotFoundException}
      */
     public static Connection getConnection(String database) {
@@ -301,7 +304,11 @@ public class MySQLConnectionFactory {
      * @param user Database User Registred
      * @param password Database Password Registred
      * 
-     * @return if everything is successful, it will be <code>return</code> a {@link Connection}
+     * @return
+     *  <P> {@link Connection} - if everything is successful 
+     * 
+     *  <P> <CODE>null</CODE> - if <code>catch</code> a <code>Exception</code>
+     * 
      * @throws RuntimeException  if the method <CODE>catch</CODE> {@link SQLException} or {@link ClassNotFoundException}
      */
     public static Connection getConnection(String host, String port, String database, String user, String password) {
@@ -359,7 +366,11 @@ public class MySQLConnectionFactory {
      * @param user Database User Registred
      * @param password Database Password Registred
      * 
-     * @return if everything is successful, it will be <code>return</code> a {@link Connection}
+     * @return
+     *  <P> {@link Connection} - if everything is successful 
+     * 
+     *  <P> <CODE>null</CODE> - if <code>catch</code> a <code>Exception</code>
+     * 
      * @throws RuntimeException  if the method <CODE>catch</CODE> {@link SQLException} or {@link ClassNotFoundException}
      */
     public static Connection getConnection(String driver, String host, String port, String database, String user, String password) {
