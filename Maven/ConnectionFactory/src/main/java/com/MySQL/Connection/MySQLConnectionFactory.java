@@ -572,6 +572,29 @@ public class MySQLConnectionFactory {
     public static String getURL(String host, String port, String database) {
         return "jdbc:mysql://"+host+":"+port+"/"+database+"?useTimezone=true&serverTimezone=UTC";
     }
+    
+    /**
+     * <P>Clean the class fields
+     * 
+     * <P> - DRIVER<BR>
+     *  - HOST<BR>
+     *  - PORT<BR>
+     *  - DATABASE<BR>
+     *  - USER<BR>
+     *  - PASSWORD<BR>
+     *  - URL<BR>
+     * 
+     */
+    public static void cleanFactory(){
+        
+        DRIVER = "";
+        HOST = "";
+        PORT = "";
+        DATABASE = "";
+        USER = "";
+        PASSWORD = "";
+        URL = "";
+    }
 
     /**
     *  <P> <B>AVOID USING IF A CONNECTION HAS NOT BEEN CREATED OR CAN <CODE> throw</CODE> {@link NullPointerException} </B>
