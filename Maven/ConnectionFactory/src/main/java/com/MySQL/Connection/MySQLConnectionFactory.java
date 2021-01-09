@@ -570,6 +570,9 @@ public class MySQLConnectionFactory {
      * @return URL with data to connect with database
      */
     public static String getURL(String host, String port, String database) {
+        
+        
+        
         return "jdbc:mysql://"+host+":"+port+"/"+database+"?useTimezone=true&serverTimezone=UTC";
     }
     

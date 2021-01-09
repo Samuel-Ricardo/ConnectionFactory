@@ -21,9 +21,9 @@ import org.junit.jupiter.api.BeforeEach;
 public class MySQLConnectionFactoryTest {
 
     @BeforeEach
-    public void cleanFactory(){
+    public void cleanAll(){
         
-        cleanFactory();
+        MySQLConnectionFactory.cleanFactory();
     }
     
     @Test
@@ -191,40 +191,21 @@ public class MySQLConnectionFactoryTest {
     }
     
     @Test
-    public void SucssesTestGetDRIVER2(){
-        
-        Connection connection = getConnection(OLD_DEFAULT_DRIVER, DEFAULT_HOST, "3308", "dbbiblio", DEFAULT_USER, DEFAULT_PASSWORD);
-        
-        String driver = getDRIVER();
-        
-        assertEquals(driver, OLD_DEFAULT_DRIVER);
-    }
-    
-    @Test
     public void FailTestGetDRIVERNull(){
         
-        Connection connection = getConnection(null, DEFAULT_HOST, "3308", "dbbiblio", DEFAULT_USER, DEFAULT_PASSWORD);
+        try{
+            
+            Connection connection = getConnection(null, DEFAULT_HOST, "3308", "dbbiblio", DEFAULT_USER, DEFAULT_PASSWORD);
+
+
+            getDRIVER();
+            
+            fail("No Exception"); 
+        }catch(NullPointerException ex){
         
-        assertEquals(NullPointerException.class, getDRIVER());
+            assertEquals(ex.getClass(), NullPointerException.class);
         
-    }
-    
-    @Test
-    public void FailTestGetDRIVEREmpty(){
-        
-        Connection connection = getConnection("", DEFAULT_HOST, "3308", "dbbiblio", DEFAULT_USER, DEFAULT_PASSWORD);
-        
-        assertEquals(NullPointerException.class, getDRIVER());
-        
-    }
-    
-    @Test
-    public void FailTestGetDRIVEREmpty2(){
-        
-        Connection connection = getConnection(" ", DEFAULT_HOST, "3308", "dbbiblio", DEFAULT_USER, DEFAULT_PASSWORD);
-        
-        assertEquals(NullPointerException.class, getDRIVER());
-        
+        }
     }
    
 }
