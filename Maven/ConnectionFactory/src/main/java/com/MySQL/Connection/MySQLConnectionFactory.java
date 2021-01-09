@@ -595,6 +595,24 @@ public class MySQLConnectionFactory {
         PASSWORD = "";
         URL = "";
     }
+    
+    /**
+     * <P>Reset the class fields
+     * 
+     * <P> - DRIVER<BR>
+     *  - HOST<BR>
+     *  - PORT<BR>
+     *  - DATABASE<BR>
+     *  - USER<BR>
+     *  - PASSWORD<BR>
+     *  - URL<BR>
+     * 
+     * <P> This function call {@link #loadClass(java.lang.String)}
+     */
+    public static void resetFactory(){
+        
+        loadClass("");
+    }
 
     /**
     *  <P> <B>AVOID USING IF A CONNECTION HAS NOT BEEN CREATED OR CAN <CODE> throw</CODE> {@link NullPointerException} </B>
