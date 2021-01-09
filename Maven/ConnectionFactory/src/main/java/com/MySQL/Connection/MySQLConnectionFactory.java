@@ -25,6 +25,10 @@ import java.util.logging.Logger;
  */
 public class MySQLConnectionFactory {
     
+    
+    private static final NullPointerException NULL_POINTER_EXCEPTION = new NullPointerException("This field is empty, try to create a connection");
+    
+    
     /**
     *
     * <P>Driver location
@@ -639,10 +643,10 @@ public class MySQLConnectionFactory {
                 return USER;
                 
             }else{
-                throw  new NullPointerException("This field is empty, try to create a connection");
+                throw  NULL_POINTER_EXCEPTION ;
             }
         }else{
-           throw  new NullPointerException("This field is empty, try to create a connection"); 
+           throw NULL_POINTER_EXCEPTION;
         }
     }
 
@@ -658,7 +662,7 @@ public class MySQLConnectionFactory {
             
             return PASSWORD;
         }else{
-            throw  new NullPointerException("This field is empty, try to create a connection");
+            throw  NULL_POINTER_EXCEPTION;
         }
     }
 }
