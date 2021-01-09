@@ -613,7 +613,21 @@ public class MySQLConnectionFactory {
      * @return <P> Name of the Database to be Connected
      */
     public static String getDATABASE() {
-        return DATABASE;
+        
+        if(DATABASE != null){
+            
+        
+            if(DATABASE.isEmpty() || DATABASE.equals("") || DATABASE.equals(" ")){
+
+                throw  NULL_POINTER_EXCEPTION ;
+                
+            }else{
+                
+                return DATABASE;
+            }
+        }else{
+           throw NULL_POINTER_EXCEPTION;
+        }
     }
 
     /**
@@ -630,10 +644,11 @@ public class MySQLConnectionFactory {
         
             if(URL.isEmpty() || URL.equals("") || URL.equals(" ")){
 
-                return URL;
+                throw  NULL_POINTER_EXCEPTION ;
                 
             }else{
-                throw  NULL_POINTER_EXCEPTION ;
+                
+                return URL;
             }
         }else{
            throw NULL_POINTER_EXCEPTION;
