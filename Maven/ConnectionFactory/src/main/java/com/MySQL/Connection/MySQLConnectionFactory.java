@@ -633,6 +633,12 @@ public class MySQLConnectionFactory {
         return USER;
     }
 
+    /**
+    * <P>if you don't know or use a standard User, try to use the {@link #DEFAULT_USER}
+    * 
+    * @see #DEFAULT_PASSWORD
+    * @return <P>Database Password Registred
+    */
     public static String getPASSWORD() {
         return PASSWORD;
     }
