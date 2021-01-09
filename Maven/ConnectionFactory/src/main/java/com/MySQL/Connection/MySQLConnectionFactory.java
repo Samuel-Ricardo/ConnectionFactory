@@ -631,11 +631,18 @@ public class MySQLConnectionFactory {
     */
     public static String getUSER() {
         
-        if(USER.isEmpty() || USER.equals("") || USER.equals(" ")){
+        if(USER != null){
             
-            return USER;
+        
+            if(USER.isEmpty() || USER.equals("") || USER.equals(" ")){
+
+                return USER;
+                
+            }else{
+                throw  new NullPointerException("This field is empty, try to create a connection");
+            }
         }else{
-            throw  new NullPointerException("This field is empty, try to create a connection");
+           throw  new NullPointerException("This field is empty, try to create a connection"); 
         }
     }
 
