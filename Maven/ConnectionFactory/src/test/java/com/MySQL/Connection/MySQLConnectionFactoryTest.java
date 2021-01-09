@@ -12,6 +12,7 @@ import com.mysql.cj.jdbc.ConnectionImpl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import org.junit.jupiter.api.BeforeEach;
 
 /**
  *
@@ -19,6 +20,12 @@ import java.sql.ResultSet;
  */
 public class MySQLConnectionFactoryTest {
 
+    @BeforeEach
+    public void cleanFactory(){
+        
+        cleanFactory();
+    }
+    
     @Test
     public void SuccessTestConnection() throws Exception {
         

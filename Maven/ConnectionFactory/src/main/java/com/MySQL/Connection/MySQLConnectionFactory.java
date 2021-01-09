@@ -728,6 +728,9 @@ public class MySQLConnectionFactory {
     }
 
     /**
+    * 
+    * <P> <B>AVOID USING IF A CONNECTION HAS NOT BEEN CREATED OR CAN <CODE> throw</CODE> {@link NullPointerException} </B>
+    * 
     * <P>It receives by default: {@link #DEFAULT_PASSWORD}, however, it can be 
     * modified by calling the <CODE>getConnection()</CODE> 
     * method by passing <B>password</B> as a parameter
@@ -735,7 +738,13 @@ public class MySQLConnectionFactory {
     * <P>if you don't know or use a standard Password, try to use the {@link #DEFAULT_USER}
     * 
     * @see #DEFAULT_PASSWORD
-    * @return <P>Database Password Registred
+    * 
+    * @return 
+    *      <P> Database Password Registred - if not null
+    * 
+    *      <P> <CODE> null </CODE> - if the PASSWORD is null
+    * 
+    * @throws NullPointerException if the PASSWORD is null 
     */
     public static String getPASSWORD() {
         
