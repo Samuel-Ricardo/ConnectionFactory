@@ -561,6 +561,8 @@ public class MySQLConnectionFactory {
     
     /**
      *
+     * Generate URL to connect whit Database
+     * 
      * @param host Database Host
      * @param port Database Port
      * @param database Name of the Database to be Connected
@@ -572,12 +574,15 @@ public class MySQLConnectionFactory {
     }
 
     /**
+    *  <P> <B>AVOID USING IF A CONNECTION HAS NOT BEEN CREATED OR CAN <CODE> throw</CODE> {@link NullPointerException} </B>
+    * 
     * <P>The Driver receives by default: {@link #DEFAULT_DRIVER}, however, it can be <BR>
     * modified by calling the {@link #getConnection(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)} <BR>
     * method by passing <B>briver</B> as a parameter
     * 
     * @serial  DRIVER
     * @see #DEFAULT_DRIVER
+    * @see #getConnection(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) 
     * 
     * @return <P> Driver location
     */
@@ -600,6 +605,7 @@ public class MySQLConnectionFactory {
     }
 
     /**
+     *  <P> <B>AVOID USING IF A CONNECTION HAS NOT BEEN CREATED OR CAN <CODE> throw</CODE> {@link NullPointerException} </B>
      * 
      * <P>It receives by default: {@link #DEFAULT_HOST}, however, it can be 
      * modified by calling the <CODE>getConnection()</CODE> 
@@ -609,6 +615,8 @@ public class MySQLConnectionFactory {
      * <P>if you don't know or use a standard Host, try to use the {@link #DEFAULT_HOST}
      * 
      * @see #DEFAULT_HOST
+     * @see #getConnection(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) 
+     * @see #getConnection(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) 
      * 
      * @return <P> Database Host
      */
@@ -631,6 +639,9 @@ public class MySQLConnectionFactory {
     }
 
     /**
+    * 
+    *  <P> <B>AVOID USING IF A CONNECTION HAS NOT BEEN CREATED OR CAN <CODE> throw</CODE> {@link NullPointerException} </B>
+    * 
     * <P>It receives by default: {@link #DEFAULT_PORT}, however, it can be 
     * modified by calling the <CODE>getConnection()</CODE> 
     * method by passing <B>port</B> as a parameter 
@@ -640,6 +651,9 @@ public class MySQLConnectionFactory {
     * @see #DEFAULT_PORT
     * 
     * @return<P>Database Port
+    * 
+    * @see #getConnection(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) 
+    * @see #getConnection(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) 
     */
     public static String getPORT() {
         
@@ -661,7 +675,13 @@ public class MySQLConnectionFactory {
 
     /**
      *
+     *  <P> <B>AVOID USING IF A CONNECTION HAS NOT BEEN CREATED OR CAN <CODE> throw</CODE> {@link NullPointerException} </B>
+     * 
      * @return <P> Name of the Database Connected
+     * 
+     * @see #getConnection(java.lang.String) 
+     * @see #getConnection(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) 
+     * @see #getConnection(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) 
      */
     public static String getDATABASE() {
         
@@ -682,6 +702,7 @@ public class MySQLConnectionFactory {
     }
 
     /**
+    * <P> <B>AVOID USING IF A CONNECTION HAS NOT BEEN CREATED OR CAN <CODE> throw</CODE> {@link NullPointerException} </B>
     * 
     * <P>It receives by default: {@link #DEFAULT_URL}, however, it can be 
     * modified by calling the <CODE>getConnection()</CODE> 
@@ -690,6 +711,8 @@ public class MySQLConnectionFactory {
     * <P>if you don't know or use a standard Url, try to use the {@link #DEFAULT_URL}
     * 
     * @see #DEFAULT_USER
+    * @see #getConnection(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) 
+    * @see #getConnection(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) 
     * 
     * @return <P>Database User Registred
     */
