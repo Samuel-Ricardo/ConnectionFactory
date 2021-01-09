@@ -26,7 +26,7 @@ import java.util.logging.Logger;
 public class MySQLConnectionFactory {
     
     
-    private static final NullPointerException NULL_POINTER_EXCEPTION = new NullPointerException("This field is empty, try to create a connection");
+    private static final NullPointerException NULL_POINTER_EXCEPTION = new NullPointerException("This field is empty or null, try to create a connection");
     
     
     /**
@@ -712,10 +712,24 @@ public class MySQLConnectionFactory {
     }
 
     /**
+    * <P> <B>AVOID USING IF A CONNECTION HAS NOT BEEN CREATED OR CAN <CODE> throw</CODE> {@link NullPointerException} </B>
+    * 
+    * <P>It receives by default: {@link #DEFAULT_USER}, however, it can be 
+    * modified by calling the <CODE>getConnection()</CODE> 
+    * method by passing <B>User</B> as a parameter
+    * 
     * <P>if you don't know or use a standard User, try to use the {@link #DEFAULT_USER}
     * 
     * @see #DEFAULT_USER
-    * @return <P>Database User Registred
+    * @see #getConnection(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) 
+    * @see #getConnection(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) 
+    * 
+    * @return 
+    *       <P>Database User Registred
+    * 
+    *       <P> <CODE> null </CODE> - if the USER is null
+    * 
+    * @throws NullPointerException if the USER is null 
     */
     public static String getUSER() {
         
@@ -738,6 +752,8 @@ public class MySQLConnectionFactory {
     * <P>if you don't know or use a standard Password, try to use the {@link #DEFAULT_USER}
     * 
     * @see #DEFAULT_PASSWORD
+    * @see #getConnection(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) 
+    * @see #getConnection(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) 
     * 
     * @return 
     *      <P> Database Password Registred - if not null
