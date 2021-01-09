@@ -181,4 +181,50 @@ public class MySQLConnectionFactoryTest {
         
         assertEquals(true, statement.isClosed() && connection.isClosed() && result.isClosed());
     }
+    
+    @Test
+    public void SucssesTestGetDRIVER(){
+        
+        String driver = getDRIVER();
+        
+        assertEquals(driver, DEFAULT_DRIVER);
+    }
+    
+    @Test
+    public void SucssesTestGetDRIVER2(){
+        
+        Connection connection = getConnection(OLD_DEFAULT_DRIVER, DEFAULT_HOST, "3308", "dbbiblio", DEFAULT_USER, DEFAULT_PASSWORD);
+        
+        String driver = getDRIVER();
+        
+        assertEquals(driver, OLD_DEFAULT_DRIVER);
+    }
+    
+    @Test
+    public void FailTestGetDRIVERNull(){
+        
+        Connection connection = getConnection(null, DEFAULT_HOST, "3308", "dbbiblio", DEFAULT_USER, DEFAULT_PASSWORD);
+        
+        assertEquals(NullPointerException.class, getDRIVER());
+        
+    }
+    
+    @Test
+    public void FailTestGetDRIVEREmpty(){
+        
+        Connection connection = getConnection("", DEFAULT_HOST, "3308", "dbbiblio", DEFAULT_USER, DEFAULT_PASSWORD);
+        
+        assertEquals(NullPointerException.class, getDRIVER());
+        
+    }
+    
+    @Test
+    public void FailTestGetDRIVEREmpty2(){
+        
+        Connection connection = getConnection(" ", DEFAULT_HOST, "3308", "dbbiblio", DEFAULT_USER, DEFAULT_PASSWORD);
+        
+        assertEquals(NullPointerException.class, getDRIVER());
+        
+    }
+   
 }
