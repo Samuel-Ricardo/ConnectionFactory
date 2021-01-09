@@ -624,7 +624,20 @@ public class MySQLConnectionFactory {
     * @return <P>Database User Registred
     */
     public static String getURL() {
-        return URL;
+        
+        if(URL != null){
+            
+        
+            if(URL.isEmpty() || URL.equals("") || URL.equals(" ")){
+
+                return URL;
+                
+            }else{
+                throw  NULL_POINTER_EXCEPTION ;
+            }
+        }else{
+           throw NULL_POINTER_EXCEPTION;
+        }
     }
 
     /**
@@ -637,16 +650,9 @@ public class MySQLConnectionFactory {
         
         if(USER != null){
             
-        
-            if(USER.isEmpty() || USER.equals("") || USER.equals(" ")){
-
-                return USER;
-                
-            }else{
-                throw  NULL_POINTER_EXCEPTION ;
-            }
+            return USER;
         }else{
-           throw NULL_POINTER_EXCEPTION;
+            throw  NULL_POINTER_EXCEPTION;
         }
     }
 
