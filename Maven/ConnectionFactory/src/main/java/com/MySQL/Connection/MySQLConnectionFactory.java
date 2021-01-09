@@ -593,7 +593,21 @@ public class MySQLConnectionFactory {
      * @return <P> Database Host
      */
     public static String getHOST() {
-        return HOST;
+        
+        if(PORT != null){
+            
+        
+            if(PORT.isEmpty() || PORT.equals("") || PORT.equals(" ")){
+
+                throw  NULL_POINTER_EXCEPTION ;
+                
+            }else{
+                
+                return PORT;
+            }
+        }else{
+           throw NULL_POINTER_EXCEPTION;
+        }
     }
 
     /**
