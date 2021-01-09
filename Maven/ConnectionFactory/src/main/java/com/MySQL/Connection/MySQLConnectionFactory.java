@@ -582,7 +582,21 @@ public class MySQLConnectionFactory {
     * @return <P> Driver location
     */
     public static String getDRIVER() {
-        return DRIVER;
+        
+        if(DRIVER != null){
+            
+        
+            if(DRIVER.isEmpty() || DRIVER.equals("") || DRIVER.equals(" ")){
+
+                throw  NULL_POINTER_EXCEPTION ;
+                
+            }else{
+                
+                return DRIVER;
+            }
+        }else{
+           throw NULL_POINTER_EXCEPTION;
+        }
     }
 
     /**
@@ -594,16 +608,16 @@ public class MySQLConnectionFactory {
      */
     public static String getHOST() {
         
-        if(PORT != null){
+        if(HOST != null){
             
         
-            if(PORT.isEmpty() || PORT.equals("") || PORT.equals(" ")){
+            if(HOST.isEmpty() || HOST.equals("") || HOST.equals(" ")){
 
                 throw  NULL_POINTER_EXCEPTION ;
                 
             }else{
                 
-                return PORT;
+                return HOST;
             }
         }else{
            throw NULL_POINTER_EXCEPTION;
