@@ -623,6 +623,12 @@ public class MySQLConnectionFactory {
         return URL;
     }
 
+    /**
+    * <P>if you don't know or use a standard User, try to use the {@link #DEFAULT_USER}
+    * 
+    * @see #DEFAULT_USER
+    * @return <P>Database User Registred
+    */
     public static String getUSER() {
         return USER;
     }
