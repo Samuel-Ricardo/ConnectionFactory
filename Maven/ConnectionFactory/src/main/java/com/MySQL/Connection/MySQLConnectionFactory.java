@@ -605,12 +605,25 @@ public class MySQLConnectionFactory {
     */
     public static String getPORT() {
         
-        return PORT;
+        if(PORT != null){
+            
+        
+            if(PORT.isEmpty() || PORT.equals("") || PORT.equals(" ")){
+
+                throw  NULL_POINTER_EXCEPTION ;
+                
+            }else{
+                
+                return PORT;
+            }
+        }else{
+           throw NULL_POINTER_EXCEPTION;
+        }
     }
 
     /**
      *
-     * @return <P> Name of the Database to be Connected
+     * @return <P> Name of the Database Connected
      */
     public static String getDATABASE() {
         
