@@ -51,7 +51,7 @@ public class MySQLConnectionFactory {
     * @serial  HOST
     * @see #DEFAULT_HOST
     */
-    private static String HOST;
+    private static String HOST = MySQLConnectionFactory.DEFAULT_HOST;
     
     /**
     *
@@ -62,7 +62,7 @@ public class MySQLConnectionFactory {
     * @serial  PORT
     * @see #DEFAULT_PORT
     */
-    private static String PORT;
+    private static String PORT = MySQLConnectionFactory.DEFAULT_PORT;
     
     /**
     *
@@ -89,18 +89,18 @@ public class MySQLConnectionFactory {
     * @serial  USER
     * @see #DEFAULT_USER
     */
-    private static String USER;
+    private static String USER = MySQLConnectionFactory.DEFAULT_USER;
     
     /**
     *
     * <P>Database Password Registred
     * 
-    * <P>if you don't know or use a standard User, try to use the {@link #DEFAULT_USER}
+    * <P>if you don't know or use a standard Password, try to use the {@link #DEFAULT_PASSWORD}
     * 
     * @serial  PASSWORD
     * @see #DEFAULT_PASSWORD
     */
-    private static String PASSWORD;
+    private static String PASSWORD = MySQLConnectionFactory.DEFAULT_USER;
     
     
     
@@ -574,7 +574,7 @@ public class MySQLConnectionFactory {
     /**
     * <P>The Driver receives by default: {@link #DEFAULT_DRIVER}, however, it can be <BR>
     * modified by calling the {@link #getConnection(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)} <BR>
-    * method by passing driver as a parameter
+    * method by passing <B>briver</B> as a parameter
     * 
     * @serial  DRIVER
     * @see #DEFAULT_DRIVER
@@ -600,6 +600,12 @@ public class MySQLConnectionFactory {
     }
 
     /**
+     * 
+     * <P>It receives by default: {@link #DEFAULT_HOST}, however, it can be 
+     * modified by calling the <CODE>getConnection()</CODE> 
+     * method by passing <B>host</B> as a parameter
+     * 
+     * 
      * <P>if you don't know or use a standard Host, try to use the {@link #DEFAULT_HOST}
      * 
      * @see #DEFAULT_HOST
@@ -625,6 +631,10 @@ public class MySQLConnectionFactory {
     }
 
     /**
+    * <P>It receives by default: {@link #DEFAULT_PORT}, however, it can be 
+    * modified by calling the <CODE>getConnection()</CODE> 
+    * method by passing <B>port</B> as a parameter 
+    * 
     * <P>if you don't know or use a standard Port, try to use the {@link #DEFAULT_PORT}
     * 
     * @see #DEFAULT_PORT
@@ -672,7 +682,12 @@ public class MySQLConnectionFactory {
     }
 
     /**
-    * <P>if you don't know or use a standard User, try to use the {@link #DEFAULT_USER}
+    * 
+    * <P>It receives by default: {@link #DEFAULT_URL}, however, it can be 
+    * modified by calling the <CODE>getConnection()</CODE> 
+    * method by passing <B>ulr</B> as a parameter
+    * 
+    * <P>if you don't know or use a standard Url, try to use the {@link #DEFAULT_URL}
     * 
     * @see #DEFAULT_USER
     * 
@@ -713,7 +728,11 @@ public class MySQLConnectionFactory {
     }
 
     /**
-    * <P>if you don't know or use a standard User, try to use the {@link #DEFAULT_USER}
+    * <P>It receives by default: {@link #DEFAULT_PASSWORD}, however, it can be 
+    * modified by calling the <CODE>getConnection()</CODE> 
+    * method by passing <B>password</B> as a parameter
+    * 
+    * <P>if you don't know or use a standard Password, try to use the {@link #DEFAULT_USER}
     * 
     * @see #DEFAULT_PASSWORD
     * @return <P>Database Password Registred
