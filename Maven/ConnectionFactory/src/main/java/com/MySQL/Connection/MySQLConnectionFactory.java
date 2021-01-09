@@ -630,7 +630,13 @@ public class MySQLConnectionFactory {
     * @return <P>Database User Registred
     */
     public static String getUSER() {
-        return USER;
+        
+        if(USER.isEmpty() || USER.equals("") || USER.equals(" ")){
+            
+            return USER;
+        }else{
+            throw  new NullPointerException("This field is empty, try to create a connection");
+        }
     }
 
     /**
@@ -640,6 +646,12 @@ public class MySQLConnectionFactory {
     * @return <P>Database Password Registred
     */
     public static String getPASSWORD() {
-        return PASSWORD;
+        
+        if(PASSWORD != null){
+            
+            return PASSWORD;
+        }else{
+            throw  new NullPointerException("This field is empty, try to create a connection");
+        }
     }
 }
