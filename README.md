@@ -11,3 +11,5 @@ Para a próximas versões estão previstos conexão com:
 - SQLite,
 - SQLServer
 
+Javadoc: Maven/ConnectionFactory/target/site/apidocs/index.html
+
