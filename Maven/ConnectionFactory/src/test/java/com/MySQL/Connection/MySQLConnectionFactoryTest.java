@@ -23,7 +23,7 @@ public class MySQLConnectionFactoryTest {
     @BeforeEach
     public void cleanAll(){
         
-        MySQLConnectionFactory.cleanFactory();
+        MySQLConnectionFactory.resetFactory();
     }
     
     @Test
