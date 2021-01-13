@@ -748,15 +748,14 @@ public class MySQLConnectionFactory {
     /**
     * <P> <B>AVOID USING IF A CONNECTION HAS NOT BEEN CREATED OR CAN <CODE> throw</CODE> {@link NullPointerException} </B>
     * 
-    * <P>It receives by default: {@link #DEFAULT_URL}, however, it can be 
-    * modified by calling the <CODE>getConnection()</CODE> 
-    * method by passing <B>ulr</B> as a parameter
     * 
-    * <P>if you don't know or use a standard Url, try to use the {@link #DEFAULT_URL}
+    * <P>if you don't know or use a standard Url, try to use the {@link #getURL(java.lang.String, java.lang.String, java.lang.String) }
     * 
     * @see #DEFAULT_USER
+    * @see #getURL()
+    * 
     * @see #getConnection(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) 
-    * @see #getConnection(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String) 
+    * @see #getConnection(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)  
     * 
     * @return <P>Database User Registred
     */
