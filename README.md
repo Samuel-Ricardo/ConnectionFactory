@@ -1,3 +1,8 @@
+
+![Badge](https://img.shields.io/static/v1?label=Samuel&message=Ricardo&color=green&style=for-the-badge&logo=GITHUB)
+![Badge](https://img.shields.io/github/repo-size/:Samuel-Ricardo/:ConnectionFactory)
+
+
 # ConnectionFactory
 
 Biblioteca que gera conexões com os mais diversos bancos de dados compatíveis com Java, para cada banco existe uma classe com teste unitários que garante a consistência e qualidade.
