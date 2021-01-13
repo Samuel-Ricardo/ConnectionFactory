@@ -54,7 +54,7 @@ Para a próximas versões estão previstos conexão com:
         </dependency>
 ``` 
 
-2-1. Caso não tenha essa tag cole este trecho no final do código antes da tag  `< /project >`:
+2-1. Caso não tenha essa tag cole este trecho no final do código antes da tag `< /project >`:
 
 
 ``` XML
