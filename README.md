@@ -27,24 +27,35 @@ Para a próximas versões estão previstos conexão com:
 
 - __*Versão Atual:*__ 1.0.0
 
-Para Usar a Biblioteca -
 
-Projeto Maven:
+# Para Usar a Biblioteca 
 
-Caso esteja trabalhando com um projeto Maven, procure o arquivo pom.xml do seu projeto Maven
+## Projeto Maven:
 
-Dentro deste arquivo, procure a tag <dependencies></dependencies>
+1. Caso esteja trabalhando com um projeto Maven, procure o arquivo `pom.xml` do seu projeto Maven
 
-E cole este trecho de código nela...
+2. Dentro deste arquivo, procure a tag: 
 
+``` XML
+<dependencies>
+	
+</dependencies>
+``` 
+
+3. E cole este trecho de código nela...
+
+``` XML
         <dependency>
             <groupId>com.samuel.cabral</groupId>
             <artifactId>ConnectionFactory</artifactId>
             <version>1.0.0</version>
         </dependency>
+``` 
 
-Caso não tenha essa tag cole este trecho no final do código antes da tag </project>:
+2-1. Caso não tenha essa tag cole este trecho no final do código antes da tag  `< /project >`:
 
+
+``` XML
     <dependencies>
        
         <dependency>
@@ -54,36 +65,39 @@ Caso não tenha essa tag cole este trecho no final do código antes da tag </pro
         </dependency>
 
     </dependencies>
+``` 
 
 
-Após ter feito isso, faça o build da sua aplicação e ele já estará pronto para ser usado com todas as dependências instaladas..
+4. Após ter feito isso, faça o build da sua aplicação e ele já estará pronto para ser usado com todas as dependências instaladas..
+
+## Projeto sem Maven 
+
+- Caso seu projeto não seja Maven e você prefira fazer o download...
+
+1. baixe este arquivo: [ConnectionFactory-1.0.0.jar] (https://github.com/Samuel-Ricardo/ConnectionFactory/blob/master/Lib/ConnectionFactory-1.0.0.jar?raw=true)
 
 
-Caso seu projeto não seja maven e você prefira fazer o download,
-
-baixe o arquivo ConnectionFactory-1.0.0.jar - https://github.com/Samuel-Ricardo/ConnectionFactory/blob/master/Lib/ConnectionFactory-1.0.0.jar?raw=true
+2. Após o download, adicione o arquivo baixado ao seu projeto.
 
 
-Após o download, adicione o arquivo baixado ao seu projeto.
+__*OBS*: Lembre-se, ao escolher este método deverá fazer o download do JDBC, vou deixar uma lista com os JDBC dos bancos de dados compatíveis com esta versão e os links para o download.__
 
 
-*OBS: Lembre-se, ao escolher este método deverá fazer o download do JDBC, vou deixar uma lista com os JDBC dos bancos de dados compatíveis com esta versão e os links para o download.
-
-
-MySQL - MySQLConnector 8.0.22 - https://dev.mysql.com/downloads/connector/j/?os=26
+- MySQL - [MySQLConnector 8.0.22](https://dev.mysql.com/downloads/connector/j/?os=26)
 
 
 
-Como criar  Uma conexão: 
+#Como criar  Uma conexão: 
 	
-    MySQL:
+- MySQL:
 
-importe a classe MySQLConnectionFactory:
+1. importe a classe MySQLConnectionFactory:
 
+```Java
 import static com.MySQL.Connection.MySQLConnectionFactory.*;
+```
+2. agora chame o método `getConnection(...)`, o método se conectará com o banco de dados e retornará uma Connection.
 
-agora chame o método getConnection(...), o método se conectará com o banco de dados e retornará uma Connection.
-
-Quando quiser fechar uma conexão chame o método closeConnection(..)
+3. Quando desejar fechar uma conexão chame o método `closeConnection(..)`
 
 
