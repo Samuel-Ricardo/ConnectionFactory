@@ -82,7 +82,7 @@ Para a próximas versões estão previstos conexão com:
 2. Após o download, adicione o arquivo baixado ao seu projeto.
 
 
-__*OBS*: Lembre-se, ao escolher este método deverá fazer o download do JDBC, vou deixar uma lista com os JDBC dos bancos de dados compatíveis com esta versão e os links para o download.__
+__*OBS*: Lembre-se, ao escolher este método deverá fazer o download do JDBC e adcionar ao seu projeto, vou deixar uma lista com os JDBC dos bancos de dados compatíveis com esta versão e os links para o download.__
 
 
 - MySQL - [MySQLConnector 8.0.22](https://dev.mysql.com/downloads/connector/j/?os=26)
