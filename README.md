@@ -11,7 +11,7 @@ Para a próximas versões estão previstos conexão com:
 - [SQLite](https://www.sqlite.org/index.html),
 - [SQLServer](https://www.microsoft.com/pt-br/sql-server/sql-server-downloads)
 
-- __Documentaçao: [Javadoc](https://samuel-ricardo.github.io/Javadoc-ConnectionFactory.github.io/)__
+- __Documentação: [Javadoc](https://samuel-ricardo.github.io/Javadoc-ConnectionFactory.github.io/)__
 
 ## __*Versão Atual:*__
 - __*Notas da Versão 1.0.0*__
@@ -19,9 +19,11 @@ Para a próximas versões estão previstos conexão com:
 # __*Informações Gerais:*__
 - __*Autor:*__ [Samuel Ricardo Cabral de Barros](https://github.com/Samuel-Ricardo)
 
-- __*Documentaçao:* [Javadoc](https://samuel-ricardo.github.io/Javadoc-ConnectionFactory.github.io/)__
+- __*Documentação:* [Javadoc](https://samuel-ricardo.github.io/Javadoc-ConnectionFactory.github.io/)__
 
 - __*Criada:*  01/2021__ 
+
+- __*Ultima Atualização:*  01/2021__ 
 
 - __*Estado:*__ Em andamento
 
@@ -74,7 +76,7 @@ Para a próximas versões estão previstos conexão com:
 
 - Caso seu projeto não seja Maven e você prefira fazer o download...
 
-1. baixe este arquivo: [ConnectionFactory-1.0.0.jar] (https://github.com/Samuel-Ricardo/ConnectionFactory/blob/master/Lib/ConnectionFactory-1.0.0.jar?raw=true)
+1. baixe este arquivo: [ConnectionFactory-1.0.0.jar](https://github.com/Samuel-Ricardo/ConnectionFactory/blob/master/Lib/ConnectionFactory-1.0.0.jar?raw=true)
 
 
 2. Após o download, adicione o arquivo baixado ao seu projeto.
@@ -87,7 +89,7 @@ __*OBS*: Lembre-se, ao escolher este método deverá fazer o download do JDBC, v
 
 
 
-#Como criar  Uma conexão: 
+# Como criar  Uma conexão: 
 	
 - MySQL:
 
@@ -98,6 +100,6 @@ import static com.MySQL.Connection.MySQLConnectionFactory.*;
 ```
 2. agora chame o método `getConnection(...)`, o método se conectará com o banco de dados e retornará uma Connection.
 
-3. Quando desejar fechar uma conexão chame o método `closeConnection(..)`
+3. Quando desejar fechar uma conexão chame o método `closeConnection(...)`
 
 
