@@ -42,7 +42,7 @@ For the next versions are planned connections with:
 
 - __*Last update:*  01/2021__ 
 
-- __*State:*__ Em andamento
+- __*State:*__ In Progress
 
 - __*Current version:*__ 1.0.0
 
@@ -89,11 +89,15 @@ For the next versions are planned connections with:
 
 4. After doing this, execute the `build` in your application and it will be ready to be used with all dependencies installed...
 
+
 ## Project without Maven 
+
 
 - If your project is not Maven and you prefer to download it ...
 
+
 1. download this file: [ConnectionFactory-1.0.0.jar](https://github.com/Samuel-Ricardo/ConnectionFactory/blob/master/Lib/ConnectionFactory-1.0.0.jar?raw=true)
+
 
 2. After downloading, add the downloaded file to your project.
 
@@ -109,12 +113,16 @@ __*WARNING*: Remember, when choosing this method you should download the JDBC an
 	
 - MySQL:
 
+
 1. Import the MySQLConnectionFactory class:
+
 
 ```Java
 import static com.MySQL.Connection.MySQLConnectionFactory.*;
 ```
+
 2. now call the `getConnection (...)` method, the method will connect to the database and return a Connection
+
 
 3. When you want to close a connection, call the `closeConnection (...)` method
 
