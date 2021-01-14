@@ -32,7 +32,7 @@ For the next versions are planned connections with:
 
 - __Documentation: [Javadoc](https://samuel-ricardo.github.io/Javadoc-ConnectionFactory.github.io/)__
   
-# __*Informações Gerais:*__
+# __*General Information:*__
 
 - __*Author:*__ [Samuel Ricardo Cabral de Barros](https://github.com/Samuel-Ricardo)
 
