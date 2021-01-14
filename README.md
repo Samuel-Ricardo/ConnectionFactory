@@ -19,7 +19,7 @@
 [![Badge](https://img.shields.io/static/v1?label=Documentation&message=Javadoc&color=red&style=for-the-badge&logo=JAVA)](https://samuel-ricardo.github.io/Javadoc-ConnectionFactory.github.io/)
 #
 
-Project whose main objective is to generate connections to databases compatible with Java, for each bank there is a class with unit tests that guarantees consistency and quality.
+Library whose main objective is to generate connections to databases compatible with Java, for each bank there is a class with unit tests that guarantees consistency and quality.
 
 The first version includes a connection to the [MySQL](https://www.mysql.com/)
 
