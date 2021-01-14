@@ -19,40 +19,41 @@
 [![Badge](https://img.shields.io/static/v1?label=Documentation&message=Javadoc&color=red&style=for-the-badge&logo=JAVA)](https://samuel-ricardo.github.io/Javadoc-ConnectionFactory.github.io/)
 #
 
-Projeto que tem como objetivo principal gerar conexões com bancos de dados compatíveis com Java, para cada banco existe uma classe com teste unitários que garante a consistência e qualidade.
+Project whose main objective is to generate connections to databases compatible with Java, for each bank there is a class with unit tests that guarantees consistency and quality.
 
-Para a primeira versão está prevista conexão com o [MySQL](https://www.mysql.com/)
+The first version includes a connection to the [MySQL](https://www.mysql.com/)
 
-Para a próximas versões estão previstos conexão com:
+For the next versions are planned connections with:
 
 - [MongoDB](https://www.mongodb.com/),
 - [PostgreSQL](https://www.postgresql.org/),
 - [SQLite](https://www.sqlite.org/index.html),
 - [SQLServer](https://www.microsoft.com/pt-br/sql-server/sql-server-downloads)
 
-- __Documentação: [Javadoc](https://samuel-ricardo.github.io/Javadoc-ConnectionFactory.github.io/)__
+- __Documentation: [Javadoc](https://samuel-ricardo.github.io/Javadoc-ConnectionFactory.github.io/)__
   
 # __*Informações Gerais:*__
-- __*Autor:*__ [Samuel Ricardo Cabral de Barros](https://github.com/Samuel-Ricardo)
 
-- __*Documentação:* [Javadoc](https://samuel-ricardo.github.io/Javadoc-ConnectionFactory.github.io/)__
+- __*Author:*__ [Samuel Ricardo Cabral de Barros](https://github.com/Samuel-Ricardo)
 
-- __*Criada:*  01/2021__ 
+- __*Documentation:* [Javadoc](https://samuel-ricardo.github.io/Javadoc-ConnectionFactory.github.io/)__
 
-- __*Ultima Atualização:*  01/2021__ 
+- __*Created:*  01/2021__ 
 
-- __*Estado:*__ Em andamento
+- __*Last update:*  01/2021__ 
 
-- __*Versão Atual:*__ 1.0.0
+- __*State:*__ Em andamento
+
+- __*Current version:*__ 1.0.0
 
 - __*License:*__ [GNU General Public License v3.0](https://github.com/Samuel-Ricardo/ConnectionFactory/blob/master/LICENSE)
 
-# Para Usar a Biblioteca 
-## Projeto Maven:
+# To Use the Library 
+## Maven Project:
 
-1. Caso esteja trabalhando com um projeto Maven, procure o arquivo `pom.xml` do seu projeto Maven
+1. If you are working with a Maven project, look for the `pom.xml` file in your Maven project
 
-2. Dentro deste arquivo, procure a tag: 
+2. Inside this file, look for the tag:
 
 ``` XML
 <dependencies>
@@ -60,7 +61,7 @@ Para a próximas versões estão previstos conexão com:
 </dependencies>
 ``` 
 
-3. E cole este trecho de código nela...
+3. And paste this code snippet into it...
 
 ``` XML
         <dependency>
@@ -70,7 +71,7 @@ Para a próximas versões estão previstos conexão com:
         </dependency>
 ``` 
 
-2-1. Caso não tenha essa tag cole este trecho no final do código antes da tag   `< /project >`:
+2-1. If you don't have this tag in your pom.xml, paste this snippet at the end of the code before the tag `< /project >`:
 
 
 ``` XML
@@ -86,36 +87,34 @@ Para a próximas versões estão previstos conexão com:
 ``` 
 
 
-4. Após ter feito isso, faça o build da sua aplicação e ele já estará pronto para ser usado com todas as dependências instaladas..
+4. After doing this, execute the `build` in your application and it will be ready to be used with all dependencies installed...
 
-## Projeto sem Maven 
+## Project without Maven 
 
-- Caso seu projeto não seja Maven e você prefira fazer o download...
+- If your project is not Maven and you prefer to download it ...
 
-1. baixe este arquivo: [ConnectionFactory-1.0.0.jar](https://github.com/Samuel-Ricardo/ConnectionFactory/blob/master/Lib/ConnectionFactory-1.0.0.jar?raw=true)
+1. download this file: [ConnectionFactory-1.0.0.jar](https://github.com/Samuel-Ricardo/ConnectionFactory/blob/master/Lib/ConnectionFactory-1.0.0.jar?raw=true)
+
+2. After downloading, add the downloaded file to your project.
 
 
-2. Após o download, adicione o arquivo baixado ao seu projeto.
-
-
-__*OBS*: Lembre-se, ao escolher este método deverá fazer o download do JDBC e adcionar ao seu projeto, vou deixar uma lista com os JDBC dos bancos de dados compatíveis com esta versão e os links para o download.__
+__*WARNING*: Remember, when choosing this method you should download the JDBC and add it to your project, I will leave a list with the JDBC of the databases compatible with this version and the download links:__
 
 
 - MySQL - [MySQLConnector 8.0.22](https://dev.mysql.com/downloads/connector/j/?os=26)
 
 
 
-# Como criar  Uma conexão: 
+# How to create a connection: 
 	
 - MySQL:
 
-1. importe a classe MySQLConnectionFactory:
+1. Import the MySQLConnectionFactory class:
 
 ```Java
 import static com.MySQL.Connection.MySQLConnectionFactory.*;
 ```
-2. agora chame o método `getConnection(...)`, o método se conectará com o banco de dados e retornará uma Connection.
+2. now call the `getConnection (...)` method, the method will connect to the database and return a Connection
 
-3. Quando desejar fechar uma conexão chame o método `closeConnection(...)`
-
+3. When you want to close a connection, call the `closeConnection (...)` method
 
