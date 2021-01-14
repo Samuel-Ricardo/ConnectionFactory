@@ -19,7 +19,7 @@
 [![Badge](https://img.shields.io/static/v1?label=Documentation&message=Javadoc&color=red&style=for-the-badge&logo=JAVA)](https://samuel-ricardo.github.io/Javadoc-ConnectionFactory.github.io/)
 #
 
-Biblioteca que gera conexões com os mais diversos bancos de dados compatíveis com Java, para cada banco existe uma classe com teste unitários que garante a consistência e qualidade.
+Biblioteca que gera conexões com bancos de dados compatíveis com Java, para cada banco existe uma classe com teste unitários que garante a consistência e qualidade.
 
 Para a primeira versão está prevista conexão com o [MySQL](https://www.mysql.com/)
 
