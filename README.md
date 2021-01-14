@@ -1,9 +1,23 @@
-
-![Badge](https://img.shields.io/static/v1?label=Samuel&message=Ricardo&color=green&style=for-the-badge&logo=GITHUB)
-![Badge](https://img.shields.io/github/repo-size/:Samuel-Ricardo/:ConnectionFactory)
-
-
 # ConnectionFactory
+
+
+[![Badge](https://img.shields.io/static/v1?label=Samuel&message=Ricardo&color=green&style=for-the-badge&logo=GITHUB)](https://github.com/Samuel-Ricardo)
+[![Badge](https://img.shields.io/static/v1?label=Samuel&message=Ricardo&color=green&style=for-the-badge&logo=LinkedIn)](https://www.linkedin.com/in/samuel-ricardo-cabral/)
+[![Badge](https://img.shields.io/static/v1?label=License&message=GNU%20v3.0&color=green&style=for-the-badge&logo=GITHUB)](https://github.com/Samuel-Ricardo/ConnectionFactory/blob/master/LICENSE)
+
+
+[![Badge](https://img.shields.io/static/v1?label=Made%20With&message=Java&color=red&style=for-the-badge&logo=JAVA)](https://www.oracle.com/java/technologies/)
+[![Badge](https://img.shields.io/static/v1?label=JDK&message=8&color=red&style=for-the-badge&logo=JAVA)](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
+[![Badge](https://img.shields.io/static/v1?label=Made%20With&message=Apache%20Maven&color=red&style=for-the-badge&logo=Apache-Maven)](https://maven.apache.org/)
+
+
+[![Badge](https://img.shields.io/static/v1?label=Compatible%20With&message=MySQL&color=green&style=for-the-badge&logo=Apache)](https://www.mysql.com/)
+
+
+![Badge](https://img.shields.io/static/v1?label=Version&message=1.0.0&color=green&style=for-the-badge&logo=GITHUB)
+![Badge](https://img.shields.io/static/v1?label=State&message=in%20progress&color=green&style=for-the-badge&logo=GITHUB)
+[![Badge](https://img.shields.io/static/v1?label=Documentation&message=Javadoc&color=red&style=for-the-badge&logo=JAVA)](https://samuel-ricardo.github.io/Javadoc-ConnectionFactory.github.io/)
+#
 
 Biblioteca que gera conexões com os mais diversos bancos de dados compatíveis com Java, para cada banco existe uma classe com teste unitários que garante a consistência e qualidade.
 
@@ -17,9 +31,6 @@ Para a próximas versões estão previstos conexão com:
 - [SQLServer](https://www.microsoft.com/pt-br/sql-server/sql-server-downloads)
 
 - __Documentação: [Javadoc](https://samuel-ricardo.github.io/Javadoc-ConnectionFactory.github.io/)__
-
-## __*Versão Atual:*__
-- __*Notas da Versão 1.0.0*__
   
 # __*Informações Gerais:*__
 - __*Autor:*__ [Samuel Ricardo Cabral de Barros](https://github.com/Samuel-Ricardo)
@@ -36,7 +47,6 @@ Para a próximas versões estão previstos conexão com:
 
 
 # Para Usar a Biblioteca 
-
 ## Projeto Maven:
 
 1. Caso esteja trabalhando com um projeto Maven, procure o arquivo `pom.xml` do seu projeto Maven
